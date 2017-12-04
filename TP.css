@@ -1,0 +1,42 @@
+div.logo {
+position: absolute;
+top:5%;
+left:8%;
+}
+
+div.link {
+position:absolute;
+top:15%;
+right: 8%;
+}
+
+h1{
+	color:blue;
+	font-size: 20px;
+	position:absolute;
+	top:30%;
+	left:9%;
+}
+div.text {
+	width:40%;
+	height: 25%;
+	position: absolute;
+	left: 9%;
+	top:40%;
+}
+span.titre {
+	color:orange;
+	font-size:19px;
+
+}
+div.formulaire{
+	position:absolute;;
+	left:9%;
+	top:70%;
+
+
+}
+.bouton{
+	background-color: blue;
+	color:white;
+}
