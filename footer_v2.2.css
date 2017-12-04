@@ -1,0 +1,38 @@
+.conteneur-footer
+{
+
+    display: flex;
+    justify-content: space-around;
+    font-family: Helvetica, sans-serif;
+  	font-size: small;
+  	background-color: #F0FFED;
+  	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+
+}
+
+.conteneur-footer div {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: 600;
+  padding: 18px 25px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.conteneur-footer div a {
+	text-decoration: none;
+	color: #464951 ;
+
+
+}
+
+.conteneur-footer div a:hover {
+  color: #757a88;
+}
+
+html {
+    background-image:url(testpng3.png);
+}
