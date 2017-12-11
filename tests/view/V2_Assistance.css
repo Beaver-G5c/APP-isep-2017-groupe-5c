@@ -1,0 +1,55 @@
+
+#info {
+
+    display: flex;
+    justify-content: space-around;
+    font-family: Helvetica, sans-serif;
+    font-size: large;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+h2 {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: 600;
+  color: #464951;
+  background-color: #ffffff;
+  
+}
+
+
+.paragraphe {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: 600;
+  color: #464951;
+  padding: 18px 25px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  }
+
+
+  #img {
+
+    float: left;
+  }
+
+a {
+    text-decoration: none;
+    color: #464951;
+    font-size: x-large;
+}
+
+a:hover {
+  color: #757a88;
+}
+
+html {
+  background-image:url(wallpaper.png);
+}
+
