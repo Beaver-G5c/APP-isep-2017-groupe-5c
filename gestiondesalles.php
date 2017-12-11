@@ -59,42 +59,55 @@
     <label for="ajoutsallesalle">Ajout d'une nouvelle salle</label><br />
   	<input type="text" name="input_nomsalle" placeholder="nom de la salle" class="input_nomsalle">
   	<input type="text" name="input_id" placeholder="ID de l'installation" class="input_id">
+  	<input type="text" name="input_taillesalle" placeholder="Taille de la salle (m²)" class="input_taillesalle">
   	
  	
      
      <fieldset>
   <legend>Veuillez sélectionner les capteurs présents dans la pièce :</legend>
   <div>
-    <input type="checkbox" id="multifonction" name="capteurs" value="multifontion">
-    <label for="multifonction">Capteur multifonction</label>
-    <input type="text"  id="idmultifonction" placeholder="ID du capteur">
+    <input type="checkbox" id="cc2650" name="capteurs" value="cc2650">
+    <label for="multifonction">CC2650</label>
+    
   </div>
   <div>
     <input type="checkbox" id="luminosité" name="capteurs" value="luminosité">
     <label for="luminosité">Capteur de luminosité</label>
-    <input type="text"  id="idluminosité" placeholder="ID du capteur">
+    
   </div>   
 <div>
     <input type="checkbox" id="dectecteurfumée" name="capteurs" value="detecteurfumée">
     <label for="detecteurfumée">Détecteur de fumée</label>
-    <input type="text"  id="iddectecteurdefumée" placeholder="ID du capteur">
+    
   </div>
  
 <div>
-    <input type="checkbox" id="position" name="capteurs" value="position">
-    <label for="position">Capteur de position</label>
-    <input type="text" id="idcapteurdeposition	" placeholder="ID du capteur">
+    <input type="checkbox" id="présence" name="capteurs" value="presence">
+    <label for="position">Capteur de présence</label>
+    
   </div>
+<div>
+    <input type="checkbox" id="position_angulaire" name="capteurs" value="position_angulaire">
+    <label for="position">Capteur de position angulaire</label>
+    
+</div>
+<div>
+    <input type="checkbox" id="contact" name="capteurs" value="contact">
+    <label for="position">Capteur de contact</label>
+    
+ </div>
   <br/><input type="submit" name="valider">
 </fieldset>   </form> 
  	<?php
  
   }
-
-if (isset($_POST['input_nomsalle']) AND isset($_POST['input_id'])) {
   
-  $requeteajouter = $bdd->prepare("INSERT INTO salle(nomdelasalle, ID) VALUES(? ,? ) ");
-  $requeteajouter->execute(array($_POST['input_nomsalle'],$_POST['input_id']));
+
+
+if (isset($_POST['input_nomsalle']) AND isset($_POST['input_id'])  AND isset($_POST['input_taillesalle'])) {
+  
+  $requeteajouter = $bdd->prepare("INSERT INTO salle(nomdelasalle, ID , taillesalle) VALUES(? ,? , ?) ");
+  $requeteajouter->execute(array($_POST['input_nomsalle'],$_POST['input_id'],$_POST['input_taillesalle']));
   
 }
   //formulaire ajouter une salle
@@ -171,7 +184,7 @@ if (isset($_POST['modifsalle']))
     <form method="POST" action="">
     
     <input type="text" name="modifnomsalle" placeholder="Nom de la salle" id="modifnomsalle">
-    <input type="text" name="modifid" placeholder="ID de la salle" id="modifid">
+    <input type="text" name="modifid" placeholder="taille de la salle (m²)" id="modifitaille">
     <input type="submit" name="validermodif" id="validermodif">
 
      </form> 
@@ -201,7 +214,9 @@ if (isset($_POST['modifsalle']))
 <div class="footer">
 <?php
  include 'footer_v2.1.html' ;
+
  ?></div>
+ 
   
 
 
