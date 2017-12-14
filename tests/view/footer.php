@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang=''>
+
 <head>
    <meta charset='utf-8'>
-   <link rel="stylesheet" href="footer_v2.0.css">
-   <title>Footer du site</title>
+   <link rel="stylesheet" href="footer_v2.2.css">
+
 </head>
 
 
@@ -13,13 +13,13 @@
      
      <div id="conteneur-footer">
 
-       <div class="element_footer">©2017 <a href="#">Domisep</a> tous droits réservés </div>
+       <div class="element_footer">©2017 <a href="#">Domisep</a> tous droits reserves </div>
 
 
-       <div class="element_footer"><a href="#">Confidentialité</a></div>
+       <div class="element_footer"><a href="#">Confidentialite</a></div>
 
 
-       <div class="element_footer"><a href="#">Mentions légales</a></div>
+       <div class="element_footer"><a href="#">Mentions legales</a></div>
 
 
        <div class="element_footer"><a href="#">A propos de nous</a></div>
@@ -33,5 +33,3 @@
       
    </div>
 </footer>
-
-<html>
