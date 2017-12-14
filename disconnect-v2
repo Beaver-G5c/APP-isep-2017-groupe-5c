@@ -1,0 +1,9 @@
+<?php
+function turn_user_into_disconnected( $id)
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=app2;charset=utf8', 'root', '');
+	$reponse=$bdd -> query('UPDATE users3 SET is_connected = 0 WHERE ID_user ="'.$id.'"');
+	session_destroy()
+}
+
+?>
