@@ -2,7 +2,7 @@
 
 <head>
    <meta charset='utf-8'>
-   <link rel="stylesheet" href="footer_v2.2.css">
+   <link rel="stylesheet" href="footer_v2.0.css">
 
 </head>
 
