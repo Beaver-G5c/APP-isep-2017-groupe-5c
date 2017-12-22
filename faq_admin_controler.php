@@ -11,6 +11,7 @@
         
          require("faq_admin_model.php");
          add_faq($_POST['question'],$_POST['answer'],$_POST['category']);
+         table_faq_admin($_POST['reponse'],$_POST['bdd'],$_POST['donnees']);
          
         }
             
