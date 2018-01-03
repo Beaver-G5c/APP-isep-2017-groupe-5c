@@ -1,0 +1,8 @@
+<?php  $bdd = new PDO('mysql:host=localhost;dbname=app', 'root', 'root'); 
+
+
+$requete = $bdd->query("SELECT * FROM legal_notice");
+$donnees = $requete->fetch();
+$requeteajouter = $bdd->prepare("UPDATE legal_notice SET title = ?, body = ? WHERE ID = 1");
+$requeteajouter->execute(array($_POST['titre_mentions_legales'],$_POST['mentions_legales'],));
+?>
