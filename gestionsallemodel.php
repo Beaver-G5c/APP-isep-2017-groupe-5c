@@ -4,9 +4,9 @@ $bdd = new PDO('mysql:host=localhost;dbname=app', 'root', 'root');
 
 $requete = $bdd->query("SELECT * FROM salle");
 
-$id_salle= rand();
 
-if (isset($_POST["input_nomsalle"]) AND isset($_POST["input_id_installation"])) {
+
+if (!empty($_POST["input_nomsalle"]) AND !empty($_POST["input_id_installation"])) {
     
     $requeteajouter = $bdd->prepare("INSERT INTO salle(nomdelasalle,id_installation,id_salle) VALUES(? , ?, ".$id_salle." ) ");
     $requeteajouter->execute(array($_POST['input_nomsalle'], $_POST['input_id_installation']));
@@ -25,6 +25,27 @@ if(isset($_POST['suprsalle'])){
     
 }
 //Supprimer de la BDD
+
+    $k=1;
+    while($k<=$i){
+    $nom_actionneur="actionneur" . $k;
+    $type_actionneur="type_actionneur" . $k;
+    $requeteajouteractionneurs = $bdd->prepare("INSERT INTO capteurs(nomdelasalle, ".$_POST['type_actionneur.$j.']." ) VALUES(?,?) ");
+    $requeteajouteractionneurs->execute(array($_POST['input_nomsalle'],$_POST[$nom_actionneur])) ;
+    $k++;
+    }
+
+echo $nom_actionneur;
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -46,6 +46,8 @@ if (isset($_POST['modifsalle'])) {
     $choix_modifsalle=$_POST['modifsalle'];  }
     else {
         $choix_modifsalle=''; } 
+        
+$id_salle= rand();
 
 
 

@@ -2,23 +2,23 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../style/gestiondesalles.css">
-<title>Gestion des salles</title>
+<title>Gestion des pièces</title>
 </head>
 
 <?php include 'header.html';?>
 <body>
 
   <div class='conteneur'>
- <form align="center"><h1>Gestion des salles </h1></form>
+ <form align="center"><h1>Gestion des pièces </h1></form>
  
   
  <form method="POST" action="">
     <p>
         <label for="salles">Que souhaitez vous faire?</label><br />
         <select name="salles" id="salles">
-            <option value="Ajouter une salle">Ajouter une salle</option>
-           <option value="Modifier une salle">Modifier une salle</option>
-            <option value="Supprimer une salle">Supprimer une salle</option>
+            <option value="Ajouter une salle">Ajouter une pièce</option>
+           <option value="Modifier une salle">Modifier une pièce</option>
+            <option value="Supprimer une salle">Supprimer une pièce</option>
             
         </select>
      <input type="submit" name="valider">  
@@ -33,8 +33,8 @@
   {
     ?>
     <form method="POST" action="">
-    <label for="ajoutsallesalle">Ajout d'une nouvelle salle</label><br />
-    <input type="text" name="input_nomsalle" placeholder="nom de la salle" class="input_nomsalle">
+    <label for="ajoutsallesalle">Ajout d'une nouvelle pièce</label><br />
+    <input type="text" name="input_nomsalle" placeholder="nom de la pièce" class="input_nomsalle">
     <input type="text" name="input_id_installation" placeholder="id de l'installation" class="input_id_installation">
 
     
@@ -83,13 +83,36 @@
   
   
 </fieldset>
-
+Nombre d'actionneurs présent dans la pièce:
+<input type="text" name="nombre_actionneur"> <br/>
 <input type="submit" name="valider"></form> 
+
 <?php }
+if(isset($_POST['valider']) AND !empty($_POST['nombre_actionneur'])){
+    $i = $_POST['nombre_actionneur'];
+    $j=1;
+    while ($j<=$i){
+        
+        ?> <form method="POST" action="">
+        	<input type="text" name="actionneur <?php echo $j ?>" placeholder="ID de l'actionneur <?php echo $j ?>"><br/>
+        	<label for="type_actionneur">Quel est le type de l'actionneur <?php echo $j ?></label>
+        <select name="type_actionneur<?php echo $j?>" id="type_actionneur<?php echo $j?>">
+            <option value="clim">Climatisation réversible</option>
+           <option value="alarme">Alarme</option>
+            <option value="camera">Vidéo surveillance</option>
+            
+        </select>
+        	</form>
+        	<?php 
+        	$j++;    
+    }
+    ?> <form method="POST" action=""><input type="submit" name="valider_actionneur"></form>
+    <?php 
+}
 if ($choix=='Modifier une salle') {
     ?>
   <form method="POST" action="">
- Quelle salle souhaitez-vous modifier?<br />
+ Quelle pièce souhaitez-vous modifier?<br />
         <select name="modifsalle" id="modifsalle">
           <?php while($resultatmodif = $requete -> fetch() ){
           
@@ -115,7 +138,7 @@ if ($choix=='Modifier une salle') {
 
   
           <form method="POST" action="">
-    <label for="suprsalle">Quelle salle souhaitez-vous supprimer?</label><br />
+    <label for="suprsalle">Quelle pièce souhaitez-vous supprimer?</label><br />
 
     <select name="suprsalle" id="suprsalle" >
           <?php while($resultatsupr = $requete -> fetch() ){
@@ -133,7 +156,7 @@ if ($choix=='Modifier une salle') {
 //formulaire supprimer une salle
 
 if(isset($_POST['suprsalle'])){
-    echo"La salle a bien été supprimée";
+    echo"La pièce a bien été supprimée";
 }
 
 
@@ -190,9 +213,11 @@ if(isset($_POST['ajoutercapteur'])){
   if(isset($_POST['valider_suppresioncapt'])){
  echo"Le capteur a été supprimé" ;
 }
-if (isset($_POST["input_nomsalle"]) AND isset($_POST["input_id_installation"])) {
-    echo"La salle a bien été ajoutée";
-
+if (isset($_POST["input_nomsalle"]) AND isset($_POST["input_id_installation"]) AND empty($_POST["nombre_actionneur"])) {
+    echo"La pièce a bien été ajoutée";
+}
+if(isset($_POST['valider_actionneur'])){
+    echo"la pièce a été ajoutée";
 }
 ?>
  </div> 
