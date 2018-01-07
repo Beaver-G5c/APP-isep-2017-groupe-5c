@@ -26,16 +26,8 @@ if(isset($_POST['suprsalle'])){
 }
 //Supprimer de la BDD
 
-    $k=1;
-    while($k<=$i){
-    $nom_actionneur="actionneur" . $k;
-    $type_actionneur="type_actionneur" . $k;
-    $requeteajouteractionneurs = $bdd->prepare("INSERT INTO capteurs(nomdelasalle, ".$_POST['type_actionneur.$j.']." ) VALUES(?,?) ");
-    $requeteajouteractionneurs->execute(array($_POST['input_nomsalle'],$_POST[$nom_actionneur])) ;
-    $k++;
-    }
-
-echo $nom_actionneur;
+    
+    
 
 
 

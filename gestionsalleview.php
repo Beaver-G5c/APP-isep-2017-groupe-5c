@@ -83,30 +83,17 @@
   
   
 </fieldset>
-Nombre d'actionneurs présent dans la pièce:
-<input type="text" name="nombre_actionneur"> <br/>
-<input type="submit" name="valider"></form> 
+Actionneurs présent dans la pièce:
+<form name="test" method="post" action="ajout.php" >
+<div id="fields">
+<input name="champ" type="text" size="10" maxlength="15">
+<input type="submit" name="ajouter_actionneur" value="ajouter actionneur" onClick="test()">
+</div>
+<input type="button" value="+" onClick="addField();"><br/>
+<input type="submit" name="valider_salle">
+</form>
 
-<?php }
-if(isset($_POST['valider']) AND !empty($_POST['nombre_actionneur'])){
-    $i = $_POST['nombre_actionneur'];
-    $j=1;
-    while ($j<=$i){
-        
-        ?> <form method="POST" action="">
-        	<input type="text" name="actionneur <?php echo $j ?>" placeholder="ID de l'actionneur <?php echo $j ?>"><br/>
-        	<label for="type_actionneur">Quel est le type de l'actionneur <?php echo $j ?></label>
-        <select name="type_actionneur<?php echo $j?>" id="type_actionneur<?php echo $j?>">
-            <option value="clim">Climatisation réversible</option>
-           <option value="alarme">Alarme</option>
-            <option value="camera">Vidéo surveillance</option>
-            
-        </select>
-        	</form>
-        	<?php 
-        	$j++;    
-    }
-    ?> <form method="POST" action=""><input type="submit" name="valider_actionneur"></form>
+    
     <?php 
 }
 if ($choix=='Modifier une salle') {
