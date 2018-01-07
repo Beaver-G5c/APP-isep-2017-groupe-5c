@@ -1,0 +1,30 @@
+.code_header {
+  display: flex;
+  justify-content: space-around;
+  font-family: Helvetica, sans-serif;
+  font-size: large;
+  background-color: #F0FFED;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #464951;
+  align-items: center;
+}
+
+
+.code_header div a {
+	color: #464951;
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+}
+
+.code_header div a:hover {
+  color: #757a88;
+}
+
+
+html {
+    background-image:url(testpng3.png);
+}
+
