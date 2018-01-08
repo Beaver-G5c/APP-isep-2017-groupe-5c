@@ -22,7 +22,7 @@
     		<input type="text" name="titre_mentions_legales" value="<?php echo $donnees['title']; ?>"class="titre_formulaire"><br/><br/>
     		Mentions légales:<br/>
     		<textarea name="mentions_legales" class="textarea" ><?php echo $donnees['body']; ?></textarea><br/>
-    		<input type="submit" name="valider">
+    		<input type="submit" name="valider_mentions">
     	</form>
     	</div>
     	
