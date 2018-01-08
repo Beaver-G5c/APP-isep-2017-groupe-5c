@@ -2,29 +2,46 @@
 
 <html>
 
+
+
     <head>
+	
+	
 
         <meta charset="utf-8" />
 
-        <link rel="stylesheet" href="style-tab.css"  />
+		
+        <link rel="stylesheet" href="view/style-arrays.css"  >
 
+		
         <title>Admin</title>
 
+		
     </head>
 
 
     <body>
 	
+	<?php require ("header.php"); ?>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
-
-
-<a href= "controller/subscribe_controler.php">Ajouter un untilisateur </a>
+<a href= "controller/add_user_controller.php">Ajouter un utilisateur </a>
 <?php
 require ("../connect.php");
 
 
-$req = $bdd->query('SELECT ID_user,name,email,phone_number,account_creation_date,last_connection_date,is_connected,is_admin,admin_authorization,last_cgu_acceptance FROM users ORDER BY account_creation_date DESC LIMIT 0, 50');
+//$req = $bdd->query('SELECT ID_user,name,email,phone_number,account_creation_date,last_connection_date,is_connected,is_admin,admin_authorization,last_cgu_acceptance FROM users ORDER BY account_creation_date DESC LIMIT 0, 50');
 
 
 ?>
@@ -46,8 +63,10 @@ $req = $bdd->query('SELECT ID_user,name,email,phone_number,account_creation_date
 	
    
        <?php
-	   while ($donnees = $req->fetch())
-	   {?>
+	   require($nomDossier."model/admin_model.php");
+	   while ($donnees = $req->fetch()){
+		  
+	   ?>
 		<tr>
 		<td><?php echo ($donnees['ID_user']); ?></td>
 		<td><?php echo ($donnees['name'] );?></td>

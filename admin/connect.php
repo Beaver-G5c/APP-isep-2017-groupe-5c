@@ -1,6 +1,7 @@
 <?php
 
 	$nomDossier="C:/wamp64/www/testthiboo/APP/admin/";
+	$nomwamp='http://localhost/testthiboo/APP/admin/';
 	
 	
 	

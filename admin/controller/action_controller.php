@@ -4,7 +4,7 @@ require($nomDossier."functions/functions_admin.php");
 require ($nomDossier."view/action_view.php");
 require ($nomDossier."model/action_model.php");
 
-
+ 
 
 if ($_POST['submit']=='Supprimer')
 {
@@ -13,7 +13,8 @@ if ($_POST['submit']=='Supprimer')
 	dropUserView();
 	
 }
-
+echo ("line16");
+{
 if ($_POST['submit']=='Modifier')
 {
 	
@@ -28,14 +29,14 @@ if ($_POST['submit']=='Modifier')
 		else{
 			$admin=0;
 			}
-		
+		echo ("line 33");
 
-		
+		// on update les nouvelles valeurs
 		updateUser($_POST['id'],$_POST['name'],$_POST['email'],$_POST['phone_number'],$admin,0);
 		
 	}
 	
 }
-
+}
 
 ?>
