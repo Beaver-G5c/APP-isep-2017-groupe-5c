@@ -13,15 +13,15 @@ if ($_POST['submit']=='Supprimer')
 	dropUserView();
 	
 }
-echo ("line16");
-{
+
+
 if ($_POST['submit']=='Modifier')
 {
 	
 	$dataUser=getInfo($_POST['id_user']);
 	updateUserForm($dataUser);
 	
-	if (isset($_POST['submit_action'])){
+	if (isset($_POST['update'])){
 		// on test la valeur de la checkbox admin 
 		if (isset($_POST['is_admin'])){
 			$admin=1;
@@ -32,11 +32,13 @@ if ($_POST['submit']=='Modifier')
 		echo ("line 33");
 
 		// on update les nouvelles valeurs
-		updateUser($_POST['id'],$_POST['name'],$_POST['email'],$_POST['phone_number'],$admin,0);
+		updateUser($_POST['id_user'],$_POST['name'],$_POST['email'],$_POST['phone_number'],$admin,0);
+		
+		header("Location : ../index.php");
 		
 	}
 	
 }
-}
+
 
 ?>
