@@ -18,11 +18,11 @@
 
     <div class="element_texte">|</div>
 
-    <div class="element_texte"><a href='#'>CGU</a></div>
+    <div class="element_texte"><a href='<?php echo ($nomwamp.'controller/mentionslegales_controler.php'); ?>'>CGU</a></div>
 
     <div class="element_texte">|</div>
 
-    <div class="element_texte"><a href= "<?php echo($nomwamp.'controller/installNumbers-controller.php'); ?>">Numéro d'installation</a></div>
+    <div class="element_texte"><a href= "<?php echo($nomwamp.'controller/installNumbers-controller.php'); ?>">NumÃ©ro d'installation</a></div>
 
     <div class="element_texte">|</div>
 
@@ -32,4 +32,4 @@
 
 
 
-<html>
+</html>
