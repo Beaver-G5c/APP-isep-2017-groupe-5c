@@ -53,6 +53,13 @@ if (isset($_POST['submit']))
 			// ensuite on le notifie a l'admin
 			require ($nomDossier.'view/add_user_view.php');
 			view_user_added();
+			// redirection vers la liste des utilisateurs 
+			?>
+			
+			<script type="text/javascript">
+        	window.location.href = '<?php echo ($nomwamp."index.php"); ?> ';
+       		</script>
+       		<?php 
 		}
 		
 		else{
