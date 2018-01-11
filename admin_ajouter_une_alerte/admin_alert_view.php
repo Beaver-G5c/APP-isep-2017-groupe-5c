@@ -12,7 +12,7 @@
         <?php include 'header-v2.2.html'; ?>
 
         <p> Ajouter une alerte :</p>
-            <form method='POST' action=''>
+            <form method='POST' action='admin_alert_controler.php'>
                 <label>Nom : <input type='text' name='name' class='nom' placeholder='Ex:Erreur 404 ' required /> </label><br>
                 <label>Description : <input type='text' name='description' class='description' placeholder='Ex: Capteur en panne ' required /> </label><br>
                 <label>Niveau d'alerte : <input type='number' name='lvl_alert' class='lvl_alert' placeholder=' Ex: 3' required/></label><br>
