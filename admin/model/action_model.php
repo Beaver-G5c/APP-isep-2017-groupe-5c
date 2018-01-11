@@ -20,7 +20,6 @@ function updateUser($idUser,$name,$email,$phone_number,$is_admin,$admin_authoriz
 {
 	require ("../connect.php");
 	
-	$req = $bdd->query ("UPDATE users SET name = 'Chantal' WHERE ID_user='".$idUser);
 	
 	
 	$req = $bdd->prepare('UPDATE users SET name = ?,email=? ,phone_number=?,is_admin=?, admin_authorization=? WHERE ID_user = ?');
