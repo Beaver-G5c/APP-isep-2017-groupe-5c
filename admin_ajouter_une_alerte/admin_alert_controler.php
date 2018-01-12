@@ -11,7 +11,7 @@
 
 	if (isset($_POST['valider'])){
 
-		add_alert($_POST['description'], "Non traitee", $_POST['name'], $_POST['id_user_target'], $_POST['type_alert'], $_POST['lvl_alert'])
+		add_alert($_POST['description'], "Non traitee", $_POST['name'], $_POST['id_user_target'], $_POST['type_alert'], $_POST['lvl_alert']);
 
 	}
   	
