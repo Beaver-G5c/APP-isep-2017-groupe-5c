@@ -4,7 +4,7 @@ function add_parameters_into_session($id)
 	//cette fonction ne cree pas les parametres SESSION mais les initialise aux bonnes valeurs
 	/* Author : Thibpffr
 	version : 1.0
-	date : 29/11*/
+	date : 29/11*/ //
 
 	{
 	$bdd = new PDO('mysql:host=localhost;dbname=app2;charset=utf8', 'root', '');
