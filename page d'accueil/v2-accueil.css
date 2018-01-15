@@ -1,0 +1,68 @@
+.promotion {
+  display: flex;
+  justify-content: space-around;
+  font-family: Helvetica, sans-serif;
+  font-size: medium;
+  box-shadow:  0 0 10px rgba(0, 0, 0, 0.1);
+  color: #706A61;
+  text-transform: uppercase;
+  width: 1200px;
+
+}
+
+.element1 {
+	width: 30%;
+	height:auto;
+	margin-left : 2%;
+	margin-right: 2%;
+}
+
+.element2 {
+	color: #68645A;
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 25%;
+  height : auto;
+	text-transform: uppercase;
+
+}
+
+p {
+
+}
+
+
+html {
+    background-image:url(wallpaper.png);
+}
+
+.catalogue {
+	  width: 1200px;
+  	display: flex;
+  	justify-content: space-around;
+  	font-family: Helvetica, sans-serif;
+  	font-size: large;
+
+  	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(173, 164, 150, .35);
+
+  	margin-left: 2%;
+  	text-transform: uppercase;
+
+
+
+}
+
+.encadrement {
+	background-color: rgba(173, 164, 150, .25);
+	font-family: Helvetica, sans-serif;
+  	font-size: xx-large;
+  	font-weight: 600;
+  	color: #33632D;
+  	text-transform: uppercase;
+    margin-left :2%;
+
+
+}
