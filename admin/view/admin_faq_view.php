@@ -69,18 +69,19 @@ function displayTable ($bdd,$localisation){?>
 <?php 
 
 function updateForm($donnees){ 
+    
 	?>
 
 <!-- On retrouve le mÃªme formulaire afin de modifier nos valeurs -->		
 		<form method="POST" action="">
 			<div class="formulaire_faq_admin">
 				<p>
-					<label for="catgory"><b>CatÃ©gorie : </b></label>			
+					<label for="catgory"><b>Catégorie : </b></label>			
 					<select name ="category" id="category"  >
 					
-					<option value ="<?php echo ($donnees['category']);?>" selected>Mon Profil</option>
+					<option value ="<?php echo ($donnees['category']);?>">Mon Profil</option>
 						<option value="Profil" selected>Mon Profil</option>
-                  		<option value="Maison" selected>Ma Maison</option>
+                  		<option value="Maison" >Ma Maison</option>
 					</select><br>
 					<label for="question"><b>Question</b> </label>:<input value ="<?php echo ($donnees['question']);?>"type="text" name="question" id="question"/><br>
 					<label for="answer"><b>Réponse </b></label>:<input value ="<?php echo ($donnees['answer']);?>" type="text" name="answer" id="answer"/><br>
