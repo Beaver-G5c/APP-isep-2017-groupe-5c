@@ -4,8 +4,7 @@ version : 1.0
 date : 12/12
 */
 
-include '../header-v2.2.html';
-require '../Fonctions/connect.php';
+
 ?>
 
    <!DOCTYPE html>
