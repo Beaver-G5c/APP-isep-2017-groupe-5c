@@ -1,7 +1,4 @@
 <?php
-
-	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '');
-
 	// Si la variable "$_POST['ID_alert']" est définie, on affiche dans le formulaire les données de la DB correspondat à cet ID.
 	if (isset($_POST['ID_alert'])){
 		$requete=$bdd->query("SELECT * FROM `notification` WHERE `ID_notif`=".$_POST['ID_alert']."");
