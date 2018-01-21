@@ -27,9 +27,9 @@ require ($localisation.'functions/functions_general.php');
 
 if (isset($_GET['page']))
 {
-    echo ("get page=".$_GET['page']);
+    //echo ("get page=".$_GET['page']);
     head($_GET['page'],$localisation);
-    header($_SESSION['name'],$_SESSION['statut']);
+    header_1($_SESSION['name'],$_SESSION['statut']);
 
     switch ($_GET['page'])
     
@@ -38,7 +38,9 @@ if (isset($_GET['page']))
         
         
         //############################## inscription ################################
-        
+        case 'user_subscribe':// fonctionne 
+            require ($localisation.'user/controller/user_subscribe_controller.php');
+            break;
         
         
         
@@ -52,41 +54,42 @@ if (isset($_GET['page']))
         
         //############################   admin  ###########################
         
-        case 'admin_user_list':
+        case 'admin_user_list':// fonctionne
             require ($localisation.'admin/controller/admin_user_list_controller.php');
             break;
            
             
-       case 'admin_install_number_list':
+        case 'admin_install_number_list':// fonctionne
             require ($localisation.'admin/controller/admin_install_number_list_controller.php');
             break;
             
-        case 'admin_catalogue':
+        case 'admin_catalogue'://fonctionne
             require ($localisation.'admin/controller/admin_catalogue_controller.php');
             break;
             
-        case 'admin_mentions_legales' :
+        case 'admin_mentions_legales' ://ne fonctionne pas totalement
             require ($localisation.'admin/controller/admin_mentions_legales_controller.php');
             break;
-        case 'admin_faq':
+        case 'admin_faq':// fonctionne
             require ($localisation.'admin/controller/admin_faq_controller.php');
             break;
-        /*default:
-            echo ("erreur 404");*/
+        default:
+            echo ("erreur 404");
         
         
         //################################   user  ##########################
         
             //--------------------inscription de l'user-------------------------
             
-         case 'user_subscribe':
-             require ($localisation.'user/controller/user_subscribe_controller.php');
-             break;
+         
              
-         case 'user_profile' :
+         case 'user_profile' :// fonctionne --> refaire des tests sur la modif mot de passe
              require ($localisation.'user/controller/user_profile_controller.php');
              break;
              
+         case 'user_room_management':
+             require ($localisation.'user/controller/user_room_management_controller.php');
+             break;
         
           
     }
@@ -97,3 +100,6 @@ else
     echo ("site commercial");
     header($_SESSION['name'],$_SESSION['statut']);
 }
+
+
+endOfFile();

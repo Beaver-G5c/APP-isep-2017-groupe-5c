@@ -13,7 +13,11 @@ if (isset($donnees['ID_user']))
 		$_SESSION['phone_number']=$donnees['phone_number'];	$_SESSION['last_connection_date']=$donnees['last_connection_date'];	$_SESSION['admin_authorization']=$donnees['admin_authorization'];
 		$_SESSION['is_admin']=$donnees['is_admin'];
 		$_SESSION['last_cgu_acceptance']=$donnees['last_cgu_acceptance'];
+		$_SESSION['ID_installation']=getInstallNumberFromIdUser($_SESSION['ID_user'],$bdd);
 		
 		}
 		
 }		?>
+
+
+

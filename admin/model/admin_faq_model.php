@@ -1,6 +1,23 @@
 <?php
 
 
+function getFaqList($bdd){
+    $req=$bdd->query("SELECT * from faq");
+    $dataArray=array("id_faq"=>array(),"question"=>array(),"answer"=>array(),"category"=>array());
+    $i=0;
+    while ($donnees = $req->fetch())
+    {
+        $dataArray['id_faq'][$i]=$donnees['id_faq'];
+        $dataArray['question'][$i]=$donnees['question'];
+        $dataArray['answer'][$i]=$donnees['answer'];
+        $dataArray['category'][$i]=$donnees['category'];
+        $i++;
+        
+    }
+   
+    return  $dataArray;
+}
+
 //On créé une fonction qui nous permet d'ajouter des infos dans la bdd
 function add_faq ($question,$answer,$category,$bdd)
     {
@@ -46,5 +63,22 @@ function delete_faq_admin($id_faq,$bdd)
         return $donnees;
         
     }
+    
+    
+    function getFaqCategories($bdd){
+        $reponse = $bdd->query('SELECT * FROM faq_categories');
+        $dataArray=array("category_name"=>array(),"id_category"=>array());
+        $i=0;
+        while ($donnees = $reponse->fetch())
+        {
+            $dataArray['category_name'][$i]=$donnees['category_name'];
+            $dataArray['id_category'][$i]=$donnees['id_category'];
+           
+            $i++;
+            
+        }
+        return $dataArray;
+        
+     }
     
     ?>

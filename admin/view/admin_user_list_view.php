@@ -17,7 +17,7 @@
 
 
 
-function display_list($bdd){
+function display_list($donnees){
     
     ?>
 
@@ -37,49 +37,33 @@ function display_list($bdd){
 	
    
        <?php
-       require("admin/model/admin_user_list_model.php");
-	   while ($donnees = $req->fetch()){
-		  
+       
+       for ($i=0;$i<count($donnees['ID_user']);$i++){
 	   ?>
 		<tr>
-		<td><?php echo ($donnees['ID_user']); ?></td>
-		<td><?php echo ($donnees['name'] );?></td>
-		<td> <?php echo ($donnees['email']); ?></td>
-		<td> <?php echo ($donnees['phone_number']); ?></td>
-		<td> <?php echo ($donnees['account_creation_date']); ?></td>
-		<td> <?php echo ($donnees['last_connection_date']); ?></td>
-		<td> <?php echo ($donnees['last_cgu_acceptance']); ?></td>
-		<td> <?php echo ($donnees['is_connected']); ?></td>
-		<td> <?php echo ($donnees['is_admin']); ?></td>
-		<td> <?php echo ($donnees['admin_authorization']); ?></td>
+		<td><?php echo ($donnees['ID_user'][$i]); ?></td>
+		<td><?php echo ($donnees['name'] [$i]);?></td>
+		<td> <?php echo ($donnees['email'][$i]); ?></td>
+		<td> <?php echo ($donnees['phone_number'][$i]); ?></td>
+		<td> <?php echo ($donnees['account_creation_date'][$i]); ?></td>
+		<td> <?php echo ($donnees['last_connection_date'][$i]); ?></td>
+		<td> <?php echo ($donnees['last_cgu_acceptance'][$i]); ?></td>
+		<td> <?php echo ($donnees['is_connected'][$i]); ?></td>
+		<td> <?php echo ($donnees['is_admin'][$i]); ?></td>
+		<td> <?php echo ($donnees['admin_authorization'][$i]); ?></td>
 		<td><form method="POST" action="" >
-			<label><input type="hidden" value="<?php echo($donnees['ID_user']); ?>"  name="id_user"  /></label>
+			<label><input type="hidden" value="<?php echo($donnees['ID_user'][$i]); ?>"  name="id_user"  /></label>
 			<input type="submit" value="Supprimer" name="submit"/>
 			<input type="submit" value="Modifier" name="submit"/>
 			
 		</form>
 		</td>
-		
 	</tr>
-	   
-	   
-	   
-   
-   
-
 <?php }
-}
+
 ?>
-
-
-	
-	
-
-
-
 </table>
-</body>
-</html>
+<?php }?>
 <?php 
 function updateUserForm($donnees)
 	{
@@ -100,4 +84,9 @@ function updateUserForm($donnees)
 	}
 	?>
 	
-	
+<?php function userUpdated(){
+
+    echo ('Les modifications ont été apportées à l\'utilisateur');
+    
+    
+}?>

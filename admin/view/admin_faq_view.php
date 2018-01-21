@@ -1,18 +1,25 @@
 <?php
-
-function addForm (){
+function selectCategories($data){
+?>
+	<select name ="category"   >
+    
+    	<?php for ($i=0;$i<count($data);$i++){?>
+   				<option value ="<?php echo ($data['id_category'][$i]);?>"><?php echo ($data['category_name'][$i]);?></option>
+    	<?php }?>
+	</select>
+	
+    
+<?php }?>
+<?php function addForm ($data){
 	?>
 <!-- On créé un formulaire qui afin de rentrer les informations -->
 		<div class="formulaire_faq_admin">
 			<form method="POST" action="">
 				<p>
 					<label for="catgory"><b>Catégorie : </b></label>			
-					<select name ="category" id="category">
-						<option value="Profil" selected>Mon profil</option>
-                  			<option value="Maison" selected>Ma maison</option>
-					</select><br>
-					<label for="question"><b>Question</b> </label>:<input type="text" name="question" id="question"/><br>
-					<label for="answer"><b>Réponse </b></label>:<input type="text" name="answer" id="answer"/><br>
+					<?php selectCategories($data); ?></br>
+					<label for="question"><b>Question</b> </label>:<input type="text" name="question" id="question"/></br>
+					<label for="answer"><b>Réponse </b></label>:<input type="text" name="answer" id="answer"/></br>
 					<input type="submit" name="submit" value="Ajouter">
             			
 				</p>			
@@ -22,11 +29,11 @@ function addForm (){
 		<?php }?>
 		
 		<?php 
-function displayTable ($bdd,$localisation){?>
+function displayTable ($donnees){?>
 <!-- On créé un tableau  nous permettant d'afficher les valeurs de la base de données -->
 		<div class="tableau_faq_admin">
-		<?php 
- $reponse = $bdd->query('SELECT * FROM faq'); ?>
+		
+ 
 
         <table>
         <tr>
@@ -37,21 +44,25 @@ function displayTable ($bdd,$localisation){?>
         </tr>   
           
  <!-- On cherche dans notre base de données -->      
-        <?php while ($donnees = $reponse->fetch()) 
-            {?>
+        <?php 
+        
+        for ($i=0;$i<count($donnees['id_faq']);$i++){
+        
+            
+            ?>
 
          <tr>
-         	<td><?php echo ($donnees['id_faq']); ?></td>
-         	<td><?php echo($donnees['category']); ?></td>
-         	<td><?php echo($donnees['question']); ?></td>
-         	<td><?php echo($donnees['answer']); ?></td>
+         	<td><?php echo ($donnees['id_faq'][$i]); ?></td>
+         	<td><?php echo($donnees['category'][$i]); ?></td>
+         	<td><?php echo($donnees['question'][$i]); ?></td>
+         	<td><?php echo($donnees['answer'][$i]); ?></td>
          	<td><form method="POST" action="">
-         	<label><input type="hidden" value="<?php echo ($donnees['id_faq']);?>" name='id_faq'/></label>
+         	<label><input type="hidden" value="<?php echo ($donnees['id_faq'][$i]);?>" name='id_faq'/></label>
          	<input type='submit' name='delete' class='supprimer' value='Supprimer'/>
          		</form>
             </td>
          	<td><form method="POST" action="">
-         	<label><input type="hidden" value="<?php echo ($donnees['id_faq']);?>" name='id_faq'/></label>
+         	<label><input type="hidden" value="<?php echo ($donnees['id_faq'][$i]);?>" name='id_faq'/></label>
          	<input type="submit" name="edit" class="modifier" value="Modifier">
          		</form>
          	</td>
@@ -68,7 +79,7 @@ function displayTable ($bdd,$localisation){?>
 
 <?php 
 
-function updateForm($donnees){ 
+function updateForm($donnees,$categories_list){ 
     
 	?>
 
@@ -77,12 +88,7 @@ function updateForm($donnees){
 			<div class="formulaire_faq_admin">
 				<p>
 					<label for="catgory"><b>Cat�gorie : </b></label>			
-					<select name ="category" id="category"  >
-					
-					<option value ="<?php echo ($donnees['category']);?>">Mon Profil</option>
-						<option value="Profil" selected>Mon Profil</option>
-                  		<option value="Maison" >Ma Maison</option>
-					</select><br>
+					<?php selectCategoriesWithTest($donnees,$categories_list); ?></br>
 					<label for="question"><b>Question</b> </label>:<input value ="<?php echo ($donnees['question']);?>"type="text" name="question" id="question"/><br>
 					<label for="answer"><b>R�ponse </b></label>:<input value ="<?php echo ($donnees['answer']);?>" type="text" name="answer" id="answer"/><br>
 					<label><input type="hidden" value="<?php echo ($_POST['id_faq']);?>" name='id_faq'/></label>
@@ -96,4 +102,25 @@ function updateForm($donnees){
 		
 <?php
 }
+
+
+function selectCategoriesWithTest($data_user,$categories_list){
 ?>
+	<select name ="category"   >
+    
+    	<?php for ($i=0;$i<count($categories_list);$i++){?>
+    	
+    			<?php if ($categories_list['id_category'][$i]==$data_user['category']){ ?>
+    				<option value ="<?php echo ($categories_list['id_category'][$i]);?>" selected ><?php echo ($categories_list['category_name'][$i]);?></option>
+    			<?php }?>
+    			
+    			
+    			<?php if ($categories_list['id_category'][$i]!=$data_user['category']){?>
+    				<option value ="<?php echo ($categories_list['id_category'][$i]);?>"  ><?php echo ($categories_list['category_name'][$i]);?></option>
+    			<?php }?>
+    			
+    	<?php }?>
+	</select>
+	
+    
+<?php }?>

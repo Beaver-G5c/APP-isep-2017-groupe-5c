@@ -1,15 +1,18 @@
 <?php
 
 require ($localisation.'admin/view/admin_user_list_view.php');
+require ($localisation.'admin/model/admin_user_list_model.php');
+require ($localisation.'admin/view/admin_add_user_view.php');
+require ($localisation.'admin/model/admin_add_user_model.php');
 
 if (isset ($_POST['submit'])){
     echo ($_POST['submit']);
     
     if ($_POST['submit']=='Supprimer'){
-        require ($localisation.'admin/model/admin_user_list_model.php');
         
-        dropUser($_POST['id_user']);
-        require ($localisation."admin/view/admin_user_list_view.php");
+        
+        dropUser($_POST['id_user'],$bdd);
+        
     }
     
     if ($_POST['submit']=='Modifier')
@@ -23,11 +26,13 @@ if (isset ($_POST['submit'])){
     
     if ($_POST['submit']=='Ajouter')
     {
-        require ($localisation.'admin/controller/admin_add_user_controller.php');
-        echo('ona  appuy� sur ajouter');       
+        addUserForm();
+          
     }
     
 }
+
+
 
 
 
@@ -43,16 +48,99 @@ if (isset ($_POST["submit_2"]))
         $is_admin=1;
     else 
         $is_admin=0;
-
+    // modif de l'user 
     updateUser($_POST['id_user'],$_POST['name'],$_POST['email'],$_POST['phone_number'],$is_admin,0,$bdd);
-    display_list($bdd);
+    userUpdated();
+    //$userArray=getListOfUsers($bdd);
+    //display_list($userArray);
 
     
 }
+
+
+
+
+if (isset($_POST['submit_action']))
+
+{
+    
+    
+    //------- on verifie si le name est bien libre !
+
+    if (!is_login_free($_POST['name']))
+    
+    
+    // le login est deja pris on reaffiche le formulaire
+    {
+        
+        
+        alreadyTakenLogin();
+        addUserForm();
+        
+        
+        
+    }
+    
+    
+    
+    else
+    {
+        
+        if (isset($_POST['is_admin']))
+        {
+            $is_admin=1;
+        }
+        
+        else
+        {
+            $is_admin=0;
+        }
+        // appel a la fonction situee dans subscribe_model3.php
+        add_user(input_securisation($_POST['name']),input_securisation($_POST['email']),input_securisation($_POST['password']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),$is_admin,0,input_securisation($_POST['insta']));
+        
+        
+        // on verifie que l'install number est libre
+        
+        
+        
+        if (check_install_number_is_free(input_securisation($_POST['insta']),get_id_from_name(input_securisation($_POST['name']),$bdd),$bdd)){
+            
+            // on est dans ce cas si l'install number fonctionne ducoup la fonction ajoute l'id de l'user dans la table install number
+            // ensuite on le notifie a l'admin
+            //addUserForm();
+            view_user_added();
+            
+            // affichage de la liste des utilisateurs
+            
+            $userArray=getListOfUsers($bdd);
+            display_list($userArray);
+            ?>
+			
+			
+       		<?php 
+		}
+		
+		else{
+			// on est dans ce cas si l'install number est deja pris ou si il n'existe pas
+		// par conséquent on supprime l'user qui vient d'etre inscrit car il n'a pas de numéro d'installation ou celui-ci ne fonctionne pas
+			
+		    installNumberProblem();
+			
+			dropUser(get_id_from_name(input_securisation($_POST['name'])));
+			addUserForm();
+			}
+	
+	 	}
+	}
+
+
+	
 else
 {
     
-    display_list($bdd);
+    $userArray=getListOfUsers($bdd);
+    display_list($userArray);
+    
     
 }
  

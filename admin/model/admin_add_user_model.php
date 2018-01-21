@@ -73,9 +73,9 @@ function check_install_number_is_free($install_number,$id_user)
 	}
 }
 
-function get_id_from_name($name)
+function get_id_from_name($name,$bdd)
 {
-	require("../connect.php");
+	
 	
 		
 	
@@ -89,9 +89,8 @@ function get_id_from_name($name)
 	}
 }
 
-function dropUser($id_user)
+function dropUser($id_user,$bdd)
 {
-	require ("../connect.php");
 	
 	$reponse=$bdd -> query('DELETE FROM users WHERE ID_user="'.$id_user.'" ');
 }

@@ -11,7 +11,7 @@ $_SESSION['admin_authorization']='';
 $_SESSION['is_admin']='';
 $_SESSION['last_cgu_acceptance']='';
 $_SESSION['statut']='';
-$_SESSION['install_id']='';
+$_SESSION['ID_installation']='';
 
 
 ?>

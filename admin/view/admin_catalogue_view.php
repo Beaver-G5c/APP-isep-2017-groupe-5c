@@ -3,19 +3,8 @@
 version : 1.0
 date : 12/12
 */
-require ('../connect.php');
-require ($nomDossier.'view/header.php');
 
-?>
-
-   <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8' />
-        <link rel='stylesheet' href='../style/style_catalogue.css'/>
-        <title>Catalogue</title>
-    </head>
-    <body>
+function addForm(){?>
     <h1>Ajout de produit</h1>
     <div>
         <form method='POST' action=''>
@@ -28,32 +17,35 @@ require ($nomDossier.'view/header.php');
         </form>
        
     </div>
+    <?php }?>
+    
+<?php function displayProductList($donnees){?>
     <div>
         <h1>Nos produits en vente</h1>
-    <?php $reponse = $bdd->query('SELECT * FROM catalogue'); ?>
     <table>
-    <tr>
+    <th>
     <td><b>ID</b></td>
     <td><b>Nom du produit</b></td>
     <td><b>Prix</b></td>
     <td><b>Consommation</b></td>
     <td><b>Description</b></td>
-    <?php while ($donnees = $reponse->fetch()) 
+    </th>
+    <?php for ($i=0;$i<count($donnees['ID']);$i++)
     {?>    
         <tr>
-        <td><?php echo($donnees['ID']);?></td>
-        <td><?php echo($donnees['product_name']);?></td>
-        <td><?php echo($donnees['price']);?></td>   
-        <td><?php echo($donnees['conso']);?></td>
-        <td><?php echo($donnees['description']);?></td>
+        <td><?php echo($donnees['ID'][$i]);?></td>
+        <td><?php echo($donnees['product_name'][$i]);?></td>
+        <td><?php echo($donnees['price'][$i]);?></td>   
+        <td><?php echo($donnees['conso'][$i]);?></td>
+        <td><?php echo($donnees['description'][$i]);?></td>
         <td><form method="POST" action="">
-        <label><input type="hidden" value="<?php echo($donnees['ID']);?>"  name="ID" id="text2" /></label>
-        <input type="submit" value="Supprimer" name="supprimer"/>
+        <label><input type="hidden" value="<?php echo($donnees['ID'][$i]);?>"  name="ID" id="text2" /></label>
+        <input type="submit" value="Supprimer" name="submit"/>
         </form>
         </td>
-        <td><form method="POST" action="<?php echo ($nomwamp."view/view_catalogue_admin_modif.php"); ?>">
-        <label><input type="hidden" value="<?php echo($donnees['ID']);?>"  name="ID" id="text2" /></label>
-        <input type="submit" value="Modifier" name="modifier"/>
+        <td><form method="POST" action="">
+        <label><input type="hidden" value="<?php echo($donnees['ID'][$i]);?>"  name="ID" id="text2" /></label>
+        <input type="submit" value="Modifier" name="submit"/>
 		</form>
 		</td>
         </tr>
@@ -62,4 +54,19 @@ require ($nomDossier.'view/header.php');
 
 </table>
 </div>
-</body>
+<?php }?>
+<?php function modifForm($data){?>
+<h1>Modification de produit</h1>
+    <div>
+        <form method='POST' action=''>
+            <label>Nom du produit : <input type='text' name='product_name'  value="<?php echo ($data['product_name']);?>"autofocus required maxlength=256/> </label><br>
+            <label>Prix : <input type='tel' name='price' class='price' value="<?php echo ($data['price']);?>"required/></label><br>
+            <label>Consommation : <input type='tel'name='conso'value="<?php echo ($data['conso']);?>"  required maxlength=256/></label><br>
+            <label>Description : <input type='text' name='description' value="<?php echo ($data['description']);?>"required/></label><br>
+            <label><input type="hidden" value="<?php echo ($data['ID']);?>"  name="id_user" id="text2" /></label>
+            <label><input type='submit' name='submit' class='ajout' value='Continuer'/></label>
+    
+        </form>
+    </div>
+    
+    <?php }?>

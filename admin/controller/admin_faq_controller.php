@@ -20,14 +20,15 @@
      if (isset($_POST['edit']))
 	 {
 	       
-	       updateForm(getQuestionData($bdd,$_POST['id_faq']));	 
+	     $categories_array=getFaqCategories($bdd);
+	     updateForm(getQuestionData($bdd,$_POST['id_faq']),$categories_array);	 
 	 }
         
      if (isset ($_POST['edit2']))
         {
             
             edit_faq_admin($_POST['question'], $_POST['answer'], $_POST['category'], $_POST['id_faq'],$bdd);
-            addForm();
+            //addForm();
             displayTable ($bdd,$localisation);
 		 	
         }
@@ -36,9 +37,14 @@
   
      else    
         {
-            addForm();
-            displayTable ($bdd,$localisation);
-		 	echo 'hey2';
+            $categories_array=getFaqCategories($bdd);
+            addForm($categories_array);
+            $faqList=getFaqList($bdd);
+            
+            displayTable ($faqList);
+            
+            
+            
          }
         
         

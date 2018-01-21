@@ -14,7 +14,7 @@ function head($page,$localisation){
 <?php }?>
 
 <?php
-/*function header($name,$statut)
+function header_1($name,$statut)
 {
  
     
@@ -30,8 +30,8 @@ function head($page,$localisation){
             header_user($name);
             break;
         
-        default:
-            header_basique();
+        //default:
+            //header_basique();
             
     }
   
@@ -40,4 +40,19 @@ function head($page,$localisation){
 
 
 
-*/?>
+?>
+<?php
+function getInstallNumberFromIdUser($id_user,$bdd){
+	
+	$reponse=$bdd -> query('SELECT install_number FROM install_number WHERE id_user="'.$id_user.'" ');
+	$donnees=$reponse->fetch();
+	return $donnees;
+}
+
+
+function endOfFile(){
+    ?>
+    </body>
+    </html>
+<?php }?>
+

@@ -5,17 +5,63 @@
 
 
     
-$_SESSION['id_user']=61;
-        displayInfos(getInfo($_SESSION['id_user']),$bdd,);
-		modifForm();
+//$_SESSION['id_user']=60;
+//$_SESSION['password']='$2y$10$YfuLs0z0hYetuta6xO189OXzQBdhCIfqIRqiI77wksKpPWOzgE8XW';
+        
 
-if ($_POST['submit']=='Modifier'){
+if (isset( $_POST['submit'])){
 	
-	updateUser($idUser,$name,$email,$phone_number,$is_admin,$admin_authorization,$bdd)
-}
+	if ($_POST['submit']=='Modifier'){
+		updateUserForm(getInfoUser($bdd,$_SESSION['id_user']));
+		
+	}
     
+	if ($_POST['submit']=='Modifier le mot de passe')
+		{
+			modifPasswordForm();
+		}
+	}
 
 
 
+
+if (isset($_POST["submit_2"]))
+{
+	updateUser($_POST['id_user'],$_POST['name'],$_POST['email'],$_POST['phone_number'],0,0,$bdd);
+	//displayInfos(getInfoUser($bdd,$_SESSION['id_user']));
+	//modifForm();
+}
+
+
+
+
+
+
+
+
+if (isset($_POST["submit_password"]))
+{
+	
+	
+    $password_in_database=$_SESSION['password'];
+	echo ("    kkkkk     ".$password_in_database);
+	if (($_POST['password1']==$_POST['password2'])&&( password_verify($_POST['ex-password'],$password_in_database)))
+	{
+		changePassword($bdd,$_SESSION["ID_user"],$_POST['password1']);
+	}
+	
+	else
+	{
+		//refusePasswordChange();
+		//modifPasswordForm();
+		
+	}
+}
+
+else
+{
+	displayInfos(getInfoUser($bdd,$_SESSION['id_user']));
+	modifForm();
+}
 
 ?>

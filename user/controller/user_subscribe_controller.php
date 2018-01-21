@@ -5,9 +5,8 @@ date : 29/11
 */
 
 
-empty ($_POST['submit']);
-// on vide la variable submit pour etre sur
 
+require ($localisation.'user/view/user_subscribe_view.php');
 
 if (isset($_POST['submit']))
 	
@@ -21,10 +20,9 @@ if (isset($_POST['submit']))
 		// le login est deja pris on reaffiche le formulaire
 		{
 		
-		empty($_POST['name']);
-		empty($_POST['submit']);
+		
 		echo 'le login est déja pris !';
-		require ($nomDossier.'view/add_user_view.php');
+		subscribeForm();
 		
 			
 		}
@@ -33,38 +31,27 @@ if (isset($_POST['submit']))
 
 	else
 		{
-		require ($localisation.'user/model/user_subscribe_modelo.php');
+		require ($localisation.'user/model/user_subscribe_model.php');
 		
-		if (isset($_POST['is_admin']))
-		{
-			$is_admin=1;
-		}
 		
-		else 
-		{
-			$is_admin=0;
-		}
+		
 		// appel a la fonction situee dans subscribe_model3.php
-		add_user(input_securisation($_POST['name']),input_securisation($_POST['email']),input_securisation($_POST['password']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),$is_admin,0,input_securisation($_POST['insta']));
+		add_user($bdd,input_securisation($_POST['name']),input_securisation($_POST['email']),input_securisation($_POST['password']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),0,0,input_securisation($_POST['insta']));
 		
 		
 		// on verifie que l'install number est libre 
 		
 		
 		
-		if (check_install_number_is_free(input_securisation($_POST['insta']),get_id_from_name(input_securisation($_POST['name'])))){
+		if (check_install_number_is_free($bdd,input_securisation($_POST['insta']),get_id_from_name($bdd,input_securisation($_POST['name'])))){
 			
 			// on est dans ce cas si l'install number fonctionne ducoup la fonction ajoute l'id de l'user dans la table install number
-			// ensuite on le notifie a l'admin
-			require ($nomDossier.'view/add_user_view.php');
-			view_user_added();
-			// redirection vers la liste des utilisateurs 
-			?>
 			
-			<script type="text/javascript">
-        	window.location.href = '<?php echo ($nomwamp."index.php"); ?> ';
-       		</script>
-       		<?php 
+			
+		
+			// redirection vers la liste des utilisateurs 
+			echo ("redirection vers la config des salles");
+			
 		}
 		
 		else{
@@ -74,7 +61,7 @@ if (isset($_POST['submit']))
 			echo ("Le numéro d'installation ne fonctionne pas");
 			
 			dropUser(get_id_from_name(input_securisation($_POST['name'])));
-			require ($nomDossier.'view/add_user_view.php');
+			subscribeForm();
 			}
 	
 	 	}
@@ -84,7 +71,7 @@ if (isset($_POST['submit']))
 else
 	// sinon on affiche le formulaire a remplir
 	{
-		require ($nomDossier.'view/add_user_view.php');
+		subscribeForm();
 		
     }
 ?>
