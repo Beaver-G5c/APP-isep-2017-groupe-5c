@@ -1,8 +1,4 @@
 <?php
-
-	// connexion a la base de données notification.
-	
-	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '');
 	
 	function add_alert($description, $name, $id_target, $type_alerte, $niveau_alerte, $ID_notif, $db){
 
