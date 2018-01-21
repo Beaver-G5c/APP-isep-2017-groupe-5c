@@ -1,0 +1,15 @@
+---READ-ME ---
+
+Mes pages fonctionnent bien ensembles mais pour l’adapter au site il faudra quelques modifications :
+-	Vous trouverez des appels aux autres pages dans :
+o	Les deux pages controler
+o	Les deux pages view : dans le <table> sur les deux pages et dans le <form> de la page modif_alert_view.php
+o	Le lien <a href='admin_alert_controler.php?'>Ajouter une alerte</a> dans la page modif_alert_view.php
+
+-	Vous trouverez du code HTML, des <body> et des <head> dans :
+o	Les deux pages view
+
+-	Pour fonctionner la page a besoin de :
+o	La variable $bdd ( après avoir del le new pdo des model )
+o	La base de données notification jointe dans le dossier
+o	Ajouter le contenu du style_alert.css au fichier css du site.
