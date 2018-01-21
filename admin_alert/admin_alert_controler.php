@@ -25,6 +25,17 @@
 		
 	}
 
+	if (isset($_POST['submit3'])){
+
+		// Appel de la fonction delete_notif, qui supprime la ligne de la DB correspondant à l'ID en paramètre.
+
+		delete_notif($_POST['ID_alert'], $bdd);
+
+		// On affiche la page pour pouvoir remplir le formulaire.
+
+		require ('admin_modif_alert_view.php');
+
+	}
 
 	// Si on accede à cette page depuis le lien "Ajouter une notification", on effectue les actions suivantes :
 
