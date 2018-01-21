@@ -4,34 +4,53 @@ version : 1.0
 date : 04/12
 */
   
- function add_product($product_name,$price,$conso,$description){
+ function add_product($bdd,$product_name,$price,$conso,$description,$ID_type){
  
-        require ("../Fonctions/connect.php");
-        $req=$bdd->prepare(" INSERT INTO `catalogue` (`product_name`,`price`,`conso`,`description`) VALUES(:product_name,:price,:conso,:description)");
+        $req=$bdd->prepare(" INSERT INTO `catalogue` (`product_name`,`price`,`conso`,`description`,`ID_type`) VALUES(:product_name,:price,:conso,:description,:ID_type)");
         $req-> execute(array(
         'product_name'=>$product_name,
         'price'=>$price,
         'conso'=>$conso,
-        'description'=>$description
+        'description'=>$description,
+        'ID_type'=>$ID_type
         
         ));
  }
 
 
 
-function del_product($ID)
+function del_product($bdd,$ID)
 {
-    require ("../Fonctions/connect.php");
+    
     $delid = $_POST['ID'];
     $bdd->exec("DELETE FROM `catalogue` WHERE id = $delid");
 }
 
-function modif_product($idUser,$product_name,$price,$conso,$description)
+function modif_product($bdd,$idUser,$product_name,$price,$conso,$description,$ID_type)
 {
-    require ('../Fonctions/connect.php');
     
-    $req = $bdd->prepare('UPDATE catalogue SET product_name = ?,price=? ,conso=?,description=? WHERE ID = ?');
-    $req->execute(array($product_name, $price, $conso, $description, $idUser));
+    
+    $req = $bdd->prepare('UPDATE catalogue SET product_name = ?,price=? ,conso=?,description=?,ID_type=? WHERE ID = ?');
+    $req->execute(array($product_name, $price, $conso, $description,$ID_type, $idUser));
+    
+}
+
+function get_device_category($bdd){
+    
+    $reponse = $bdd->query('SELECT * FROM type_device');
+    while ($donnees=$reponse->fetch())
+    {
+        echo '<option value="'; echo $donnees['ID_type']; echo '">'; echo $donnees['Nom']; echo '</option>'; /* on renvoie du html afin que le view puisse ensuite l'afficher */
+    }
+    
+function idtotype(bdd,$id){
+    
+    $reponse = $bdd->query("SELECT Nom FROM type_device WHERE ID_type = $id");
+    while ($donnees = $reponse->fetch()) 
+    {
+    echo "<td>"; echo($donnees['Nom']); echo"</td>";
+    }
+}
     
 }
 ?>
