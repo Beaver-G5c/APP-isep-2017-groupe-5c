@@ -6,7 +6,7 @@
         <h1 class = titre> Modifier une alerte :</h1>
         	<div class = zone>
         		<br>
-	            <form method='POST' action='admin_modif_alert_controler_v4.php' class = form_notif>
+	            <form method='POST' action='admin_modif_alert_controler.php' class = form_notif>
 	            	<label><br><input type='hidden' name='alert_id' class='formulaire' value= "<?php echo ($_POST['ID_alert'])?>" /></label><br>
 	                <label>Nom : <br><input type='text' name='alert_name' class='formulaire' value="<?php echo($data['notif_name'])?>"  /> </label><br>
 	                <label for="description">Description : <br></label><textarea name="description" class = 'formulaire'> <?php echo($data['notif_description'])?> </textarea><br>
@@ -42,7 +42,7 @@
            
             <?php
 
-                $request =$bdd->query('SELECT * FROM notification');
+                $request =$bdd->query('SELECT * FROM notification ORDER BY Id_notif');
                 while ($donnees = $request->fetch()){
                   
             ?>
@@ -57,13 +57,13 @@
                 <td> <?php echo ($donnees['notif_statut']); ?> </td>
                 <td>
                 <!-- On utilise un formulaire pour aller à la page "modification notif" en envoyant la valeur de l'Id_notif via un POST. -->
-                <form method = 'POST' action="admin_modif_alert_controler_v4.php">
+                <form method = 'POST' action="admin_modif_alert_controler.php">
                     <label><input type="hidden" value="<?php echo($donnees['ID_notif']);?>" name="ID_alert" class = "formulaire" /></label>
                     <input type="submit" name="submit2" value="Modifier">
                 </form></td>
                 <td>
                 <!-- On utilise un formulaire pour supprimer la notification en envoyant la valeur de l'Id_notif via un POST. -->
-                <form method = 'POST' action="admin_modif_alert_controler_v4.php">
+                <form method = 'POST' action="">
                     <label><input type="hidden" value="<?php echo($donnees['ID_notif']);?>" name="ID_alert" class = "formulaire" /></label>
                     <input type="submit" name="submit3" value="Delete">
                 </form></td>
