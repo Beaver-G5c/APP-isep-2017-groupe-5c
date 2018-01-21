@@ -38,7 +38,7 @@
                 On peut ainsi parcourir toute la base de données et afficher son contenu ligne par ligne. -->
 
             <?php
-                $request =$bdd->query('SELECT * FROM notification');
+                $request =$bdd->query('SELECT * FROM notification ORDER BY ID_notif ');
                 while ($donnees = $request->fetch()){                  
             ?>
             <tr>
@@ -58,7 +58,7 @@
                 </form></td>
                 <td>
                 <!-- On utilise un formulaire pour supprimer la notification en envoyant la valeur de l'Id_notif via un POST. -->
-                <form method = 'POST' action="admin_modif_alert_controler.php">
+                <form method = 'POST' action="">
                     <label><input type="hidden" value="<?php echo($donnees['ID_notif']);?>" name="ID_alert" class = "formulaire" /></label>
                     <input type="submit" name="submit3" value="Delete">
                 </form></td>
