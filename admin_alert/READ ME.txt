@@ -7,8 +7,6 @@ Mes pages fonctionnent bien ensembles mais pour l’adapter au site il faudra qu
     Les deux pages view : dans le <table> sur les deux pages et dans le <form> de la page modif_alert_view.php
     Le lien <a href='admin_alert_controler.php?'>Ajouter une alerte</a> dans la page modif_alert_view.php
 
--	Vous trouverez du code HTML, des <body> et des <head> dans :
-    Les deux pages view
 
 -	Pour fonctionner la page a besoin de :
     La variable $bdd ( après avoir del le new pdo des model )
