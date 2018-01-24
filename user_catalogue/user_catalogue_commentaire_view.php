@@ -18,9 +18,11 @@ date : 12/12
         <p><?php echo $_POST['description']; ?></p>
         <h3>Type de produit</h3>
         <p><?php echo $_POST['ID_type']; ?></p>
-        <h2>Ajouter un avis :</h2> 
+        
     </div>
+    
     <div id ='product_add_comment'>
+    <h2>Ajouter un avis :</h2> 
     <form method='post' action=''>
     <p>Nom :</p>
     <input type='text' name='nom' class='commentaire' placeholder='Ex:Michel'/><br>
