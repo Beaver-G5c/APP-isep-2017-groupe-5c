@@ -6,7 +6,26 @@
 </head>
 
 <?php include 'header.html';?>
-<body>
+
+
+<?php function displayCatalogue($data){
+    for ($i=0;$i<count($data['ID']);$i++){ ?>
+            
+        <input type="checkbox" name="<?php echo('checkbox'.$data['ID'][$i]); ?>" /><label ><?php echo($data['product_name'][$i]); ?></label><br/><input type="text" name="<?php echo('cat'.$data['ID'][$i]);?>"  />
+   		<input type='hidden' name='<?php echo('id_type'.$data['ID'][$i]);?> value='<?php echo($data['ID_type'][$i])?>'/><br/>
+    <?php  }
+    
+
+}
+
+?>
+<?php function sensorList($data){?>
+    <form method="POST" action="">
+		<?php displayCatalogue($data);?>
+		<input type='submit' name='valider_ajout' value='valider'/>
+	</form>
+	
+<?php }?>
 
   <div class='conteneur'>
  <form align="center"><h1>Gestion des pièces </h1></form>
@@ -36,88 +55,24 @@
     <label for="ajoutsallesalle">Ajout d'une nouvelle pièce</label><br />
     <input type="text" name="input_nomsalle" placeholder="nom de la pièce" class="input_nomsalle">
     <input type="text" name="input_id_installation" placeholder="id de l'installation" class="input_id_installation">
-
-    
-    
-  
-     
-     <fieldset>
-  <legend>Veuillez sélectionner les capteurs présents dans la pièce :</legend>
-  <div>
-    <input type="checkbox" class="cc2650" name="cc2650" value="cc2650">
-    <label for="multifonction">CC2650</label>
-    <input type="text" class="id_cc2650" name="id_cc2650" placeholder="id du capteur">
-     
-  </div>
-  <div>
-    <input type="checkbox" class="capteur_luminosité" name="capteur_luminosite" value="luminosité">
-    <label for="luminosité">Capteur de luminosité</label>
-    <input type="text" class="id_luminosite" name="id_luminosite" placeholder="id du capteur">
-    
-  </div>   
-<div>
-    <input type="checkbox" class="dectecteur_de_fumee" name="detecteur_de_fumee" value="detecteurfumee">
-    <label for="detecteurfumee">Détecteur de fumée</label>
-    <input type="text" class="id_fumee" name="id_fumee" placeholder="id du capteur">
-    
-  </div>
- 
-<div>
-    <input type="checkbox" class="présence" name="capteur_presence" value="presence">
-    <label for="position">Capteur de présence</label>
-    <input type="text" class="id_presence" name="id_presence" placeholder="id du capteur">
-    
-  </div>
-<div>
-    <input type="checkbox" class="position_angulaire" name="position_angulaire" value="position_angulaire">
-    <label for="position">Capteur de position angulaire</label>
-    <input type="text" class="id_position" name="id_position" placeholder="id du capteur">
-    
-</div>
-<div>
-    <input type="checkbox" class="contact" name="capteur_contact" value="contact">
-    <label for="position">Capteur de contact</label>
-    <input type="text" class="id_contact" name="id_contact" placeholder="id du capteur">
-    
- </div>
-  
+<fieldset>
+<?php sensorList( $arrayData);?>
   
 </fieldset>
-Actionneurs présent dans la pièce:
-<form name="test" method="post" action="ajout.php" >
-<div id="fields">
-<input name="champ" type="text" size="10" maxlength="15">
-<input type="submit" name="ajouter_actionneur" value="ajouter actionneur" onClick="test()">
-</div>
-<input type="button" value="+" onClick="addField();"><br/>
-<input type="submit" name="valider_salle">
+
 </form>
 
-    
-    <?php 
-}
+<?php }
+
 if ($choix=='Modifier une salle') {
     ?>
+  
   <form method="POST" action="">
- Quelle pièce souhaitez-vous modifier?<br />
-        <select name="modifsalle" id="modifsalle">
-          <?php while($resultatmodif = $requete -> fetch() ){
-          
-            # code...
-          ?>
-            <option  value="<?php echo($resultatmodif['nomdelasalle'])  ?>"><?php echo$resultatmodif['nomdelasalle'] ;  ?> </option>
-            <?php
-
-      }
-            ?>
-            </select>
-     <input type="submit" >
- </form>
-<?php
+  <input type="submit" name="ajoutercapteur" value="ajouter un capteur" id="ajoutercapteur">
+  <input type="submit" name="supprimercapteur" value="supprimer un capteur" id="supprimercapteur">
+  </form><?php
  //formulaire modifier une salle
 }
-
-
   if ($choix=='Supprimer une salle') {
  ?>
 
@@ -128,75 +83,58 @@ if ($choix=='Modifier une salle') {
     <label for="suprsalle">Quelle pièce souhaitez-vous supprimer?</label><br />
 
     <select name="suprsalle" id="suprsalle" >
-          <?php while($resultatsupr = $requete -> fetch() ){
+          <?php 
+          
+          
+          while($resultatsupr = $requete2 -> fetch() ){
           
             # code...
           ?>
             <option value="<?php echo($resultatsupr['nomdelasalle'])  ?>"> <?php echo $resultatsupr['nomdelasalle'] ; ?> </option>
             <?php
-
       } ?> </select>
      <input type="submit" name="Supprimer">
  </form>
 
 <?php }
 //formulaire supprimer une salle
-
 if(isset($_POST['suprsalle'])){
     echo"La pièce a bien été supprimée";
 }
 
+if(isset($_POST['ajoutercapteur'])){ ;
+   ?> 
+   <form method="POST" action="">
+   <label for="ajout nouveaux capteurs">Dans quelle salle souhaitez-vous ajouter des capteurs ou des actionneurs?</label>
+   <select name="input_nomsalle" id="modifsalle" >
+          <?php
+          while($resultatmodif = $requete2 -> fetch() ){
+          
+            # code...
+          ?>
+            <option value="<?php echo($resultatmodif['nomdelasalle'])  ?>"> <?php echo $resultatmodif['nomdelasalle'] ; ?> </option>
+            <?php
+      } ?> </select>
+     
 
-if (isset($_POST['modifsalle']))
-{
-    ?>
-  
-   <h1>Modification <?php echo $choix_modifsalle . " :" ; ?> </h1>
-  <form method="POST" action="">
-  <input type="submit" name="ajoutercapteur" value="ajouter un capteur" id="ajoutercapteur">
-  <input type="submit" name="supprimercapteur" value="supprimer un capteur" id="supprimercapteur">
-  </form>
-  
- <?php 
- 
-}
+    
+    <fieldset>
+  <?php sensorList( $arrayData);?>
+</fieldset>
+<input type="submit" name="valider_ajout">
 
-if(isset($_POST['ajoutercapteur'])){
-   ?> <form method="POST" action="">
-   <label for="ajouteruncapteur">Quel type de capteur souhaitez vous ajouter?</label><br />
-        <select name="ajouteruncapteur" id="ajouteruncapteur">
-            <option value="cc2650">CC2650</option>
-           <option value="capteur_luminosite">Capteur de luminosité</option>
-            <option value="positionangulaire">Capteur de position angulaire</option>
-            <option value="detecteur_de_fumee">Detecteur de fumée</option>
-           <option value="capteur_presence">Capteur de présence</option>
-            <option value="capteur_contact">Capteur de contact</option>
-            
-        </select>
-        <input type="text" name="id_ajout_capteur" placeholder="ID du capteur à ajouter">
-     <input type="submit" name="valider_ajoutcapt">  
  </form> <?php }
-
  if(isset($_POST['valider_ajoutcapt'])){
  echo"Le capteur a été ajouté" ;
 }
-
-
  if(isset($_POST['supprimercapteur'])){
    ?> <form method="POST" action="">
-   <label for="ajouteruncapteur">Quel type de capteur souhaitez vous supprimer?</label><br />
-        <select name="ajouteruncapteur" id="ajouteruncapteur">
-            <option value="cc2650">CC2650</option>
-           <option value="capteur_luminosite">Capteur de luminosité</option>
-            <option value="positionangulaire">Capteur de position angulaire</option>
-            <option value="detecteur_de_fumee">Detecteur de fumée</option>
-           <option value="capteur_presence">Capteur de présence</option>
-            <option value="capteur_contact">Capteur de contact</option>
-            
-        </select>
+   
         <input type="text" name="id_suppresion_capteur" placeholder="ID du capteur à supprimer">
      <input type="submit" name="valider_suppresioncapt">  
  </form> <?php }
+  
+  
   if(isset($_POST['valider_suppresioncapt'])){
  echo"Le capteur a été supprimé" ;
 }
@@ -210,5 +148,5 @@ if(isset($_POST['valider_actionneur'])){
  </div> 
 
  <?php include 'footer.php';?>
- </body>
+
  </html>
