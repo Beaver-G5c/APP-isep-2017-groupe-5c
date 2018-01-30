@@ -12,7 +12,7 @@
 if (isset( $_POST['submit'])){
 	
 	if ($_POST['submit']=='Modifier'){
-		updateUserForm(getInfoUser($bdd,$_SESSION['id_user']));
+		updateUserForm(getInfoUser($bdd,$_SESSION['ID_user']));
 		
 	}
     
@@ -44,23 +44,26 @@ if (isset($_POST["submit_password"]))
 	
 	
     $password_in_database=$_SESSION['password'];
-	echo ("    kkkkk     ".$password_in_database);
+	
 	if (($_POST['password1']==$_POST['password2'])&&( password_verify($_POST['ex-password'],$password_in_database)))
 	{
 		changePassword($bdd,$_SESSION["ID_user"],$_POST['password1']);
+		displayInfos(getInfoUser($bdd,$_SESSION['ID_user']));
+		modifForm();
 	}
+	
 	
 	else
 	{
-		//refusePasswordChange();
-		//modifPasswordForm();
+		refusePasswordChange();
+		modifPasswordForm();
 		
 	}
 }
 
 else
 {
-	displayInfos(getInfoUser($bdd,$_SESSION['id_user']));
+	displayInfos(getInfoUser($bdd,$_SESSION['ID_user']));
 	modifForm();
 }
 

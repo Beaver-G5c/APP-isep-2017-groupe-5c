@@ -10,8 +10,8 @@ date : 29/11
 // les variables is_admin et admin_autho sont modulables pour pouvoir reutiliser la fonction pour ajouter les admin 
 // la fonction initialise admin_authorization à 0 pour etre sur qu'elle soit bien à 0 et pas NULL
 
-function add_user($name,$email,$password,$phone_number,$secret_question,$secret_answer,$is_admin,$admin_authorization,$install_number){
-	require ("../connect.php");
+function add_user($bdd,$name,$email,$password,$phone_number,$secret_question,$secret_answer,$is_admin,$admin_authorization,$install_number){
+	
 	
 //-----------------connexion a la base de données users -------------------
 	
@@ -42,36 +42,44 @@ function add_user($name,$email,$password,$phone_number,$secret_question,$secret_
 
 
 
-function check_install_number_is_free($install_number,$id_user)
+function check_install_number_is_free($install_number,$id_user,$bdd)
 {
-	// cette fonction renvoie 1 si l'install number est libre et  ajoute l'id user dans la table install number et renvoie 0 si l'install number n'existe pas ou si il est déja pris
-	
-	
-	
-	require ("../connect.php");
-	$reponse=$bdd -> query('SELECT id_user FROM install_number WHERE install_number="'.$install_number.'" ');
-	
-	
-	while ($donnees = $reponse->fetch()){
-	
-	
-	if ($donnees['id_user']!=NULL)
-		
-	{
-		
-		return 0;
-	}
-	else
-	{
-		// dans ce cas on ajoute l'id dans la table
-		$req=$bdd->prepare(" UPDATE `install_number` SET id_user=:id WHERE install_number= :install_number");
-		$req-> execute(array('id'=>$id_user,'install_number'=>$install_number));
-		
-		
-		return 1;
-	}
-	}
+    // cette fonction renvoie 1 si l'install number est libre et  ajoute l'id user dans la table install number et renvoie 0 si l'install number n'existe pas ou si il est déja pris
+    
+    
+    
+    
+    $reponse=$bdd -> query('SELECT id_user FROM install_number WHERE install_number="'.$install_number.'" ');
+    
+    
+    while ($donnees = $reponse->fetch()){
+        
+        
+        if ($donnees['id_user']!=NULL)
+        
+        {
+            
+            return 0;
+        }
+        else
+        {
+            // dans ce cas on ajoute l'id dans la table
+            $req=$bdd->prepare(" UPDATE `install_number` SET id_user=:id WHERE install_number= :install_number");
+            $req-> execute(array('id'=>$id_user,'install_number'=>$install_number));
+            
+            
+            return 1;
+        }
+    }
 }
+
+
+
+
+    
+   
+
+
 
 function get_id_from_name($name,$bdd)
 {

@@ -18,7 +18,7 @@ function getInfoUser($bdd,$id_user){
 function changePassword($bdd,$id_user,$password)
 {
 	$password = (password_hash ($password,PASSWORD_BCRYPT));
-	echo ("dans la fonction pass=".$password);
+	
 	$req = $bdd->prepare('UPDATE users SET password = ? WHERE ID_user = ?');
     $req->execute(array($password,$id_user));
 	

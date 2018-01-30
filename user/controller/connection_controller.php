@@ -23,7 +23,8 @@ if (isset($_POST['submit']))
 		
 		
 		// on get l'id dans la base en fonction du login
-		$id_user=get_id_from_login(input_securisation($_POST['login']),$bdd);
+	    $_SESSION['ID_user']=get_id_from_login(input_securisation($_POST['login']),$bdd);
+	    
 		require ($localisation.'user/model/session.php');
 		
 		
@@ -32,14 +33,25 @@ if (isset($_POST['submit']))
 			
 		if ( $_SESSION['is_admin']==1)
 		{
-			
+		    
 			header('Location: index.php?page=admin_user_list');
 		}
 		
 		else 
 		{
+		    
+			header('Location: index.php?page=user_programmation');
 			
-			header('Location: index.php?page=user_home_page');
+		   /*echo( $_SESSION['ID_user'].'<br/>');
+		   echo( $_SESSION['name'].'<br/>');
+		   echo( $_SESSION['email'].'<br/>');
+		   echo( $_SESSION['password'].'<br/>');
+		   echo( $_SESSION['phone_number'].'<br/>');
+		   echo( $_SESSION['last_connection_date'].'<br/>');
+		   echo( $_SESSION['admin_authorization'].'<br/>');
+		   echo( $_SESSION['is_admin'].'<br/>');
+		   echo( $_SESSION['last_cgu_acceptance'].'<br/>');
+		   echo( $_SESSION['ID_installation'].'<br/>');*/
 		}
 			
 			

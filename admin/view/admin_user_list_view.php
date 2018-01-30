@@ -1,16 +1,15 @@
 
-
+<a href='index.php?page=admin_install_number_list'><input type="button" value="Liste des numÃ©ros d'installation"></a>
 	
 
 	
 	
-	
-	<form method="POST" action="">
-
-
-	<input type='submit'  value='Ajouter' name='submit'/>
+	<h1 class='titre_admin_user_list'>LISTE DES UTILISATEURS</h1>
+<form method="POST" action="">
+<input type='submit'  class='bouton_admin_user_list' value='Ajouter un admin' name='submit'/>
 	
 	</form>
+
 <?php
 
 
@@ -20,7 +19,6 @@
 function display_list($donnees){
     
     ?>
-
 <table>
 	<tr>
 		<th> ID</th>
@@ -32,7 +30,6 @@ function display_list($donnees){
 		<th> DerniÃ¨re acceptation des CGU</th>
 		<th> Est connectÃ©</th>
 		<th> Est admin</th>
-		<th> Autorisation admin</th>
 	</tr>
 	
    
@@ -50,7 +47,6 @@ function display_list($donnees){
 		<td> <?php echo ($donnees['last_cgu_acceptance'][$i]); ?></td>
 		<td> <?php echo ($donnees['is_connected'][$i]); ?></td>
 		<td> <?php echo ($donnees['is_admin'][$i]); ?></td>
-		<td> <?php echo ($donnees['admin_authorization'][$i]); ?></td>
 		<td><form method="POST" action="" >
 			<label><input type="hidden" value="<?php echo($donnees['ID_user'][$i]); ?>"  name="id_user"  /></label>
 			<input type="submit" value="Supprimer" name="submit"/>
@@ -63,30 +59,35 @@ function display_list($donnees){
 
 ?>
 </table>
+
+
 <?php }?>
 <?php 
 function updateUserForm($donnees)
 	{
    
 	?>
-	
+	<div class='cadre_admin_add_user'>
+	<h1 class='titre_admin_add_user'>Modification</h1>
 	<form method="POST" action="">
 			
 			<label><input type="hidden" value="<?php echo($donnees['ID_user']); ?>"  name="id_user"  /></label>
-			<label> Nom :</label><input type="text" id="name" name="name" value="<?php echo( $donnees['name']);?>" autofocus required maxlength=256 />
-			<label> Email :</label><input type="email" id="email" name="email" value="<?php echo( $donnees['email']);?>" required maxlength=256/>
-			<label> Numéro de téléphone :</label><input type="tel" id="phone_number" name="phone_number" value="<?php echo( $donnees['phone_number']);?>" />
-			<label> Est admin :</label><input type="checkbox" name="is_admin" value=' <?php if ($donnees['is_admin']==1){echo ("checked=checked");} ?>' />
-			<label><input type="hidden" value="<?php echo($donnees['ID_user']); ?>"  name="id_user2"  /></label>
-			<label><input type='submit' name='submit_2' class='update' value='update'/></label>
+			<label> Nom : </label><input type="text" id="name" name="name" value="<?php echo( $donnees['name']);?>" autofocus required maxlength=256 /><br><br>
+			<label> Email : </label><input type="email" id="email" name="email" value="<?php echo( $donnees['email']);?>" required maxlength=256/><br><br>
+			<label> Numero de telephone : </label><input type="tel" id="phone_number" name="phone_number" value="<?php echo( $donnees['phone_number']);?>" /><br><br>
+			<label> Est admin : </label><input type="checkbox" name="is_admin" value=' <?php if ($donnees['is_admin']==1){echo ("checked=checked");} ?>' /><br><br>
+			<label><input type="hidden" value="<?php echo($donnees['ID_user']); ?>"  name="id_user2"  /></label><br><br>
+			<label><input type='submit' name='submit_2' class='update_admin_add_user' value='Actualiser'/></label>
 	</form>
+	</div>
 	<?php 
 	}
 	?>
+
 	
 <?php function userUpdated(){
 
-    echo ('Les modifications ont été apportées à l\'utilisateur');
+    echo ('Les modifications ont Ã©tÃ© apportÃ©es a l\'utilisateur');
     
     
 }?>

@@ -1,5 +1,7 @@
+@charset "UTF-8";   
+/* ------------------- Header------------------ */  
 
-{ /* ------------------- Header------------------ */  }
+
 
 
 .code_header {
@@ -15,11 +17,11 @@
 
 
 .code_header div a {
-	color: #464951;
-	font-weight: 600;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+  color: #464951;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
 }
 
@@ -28,113 +30,1134 @@
 }
 
 
+/* ----------------------------- footer --------------------------------------*/
+
+#conteneur-footer
+{
+  position: fixed;
+  bottom : 0;
+  left : 0;
+  right : 0;
+    display: flex;
+    justify-content: space-around;
+    font-family: Helvetica, sans-serif;
+    font-size: small;
+    background-color: #F0FFED;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+
+}
+
+#conteneur-footer div {
+  
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: 600;
+  padding: 18px 25px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#conteneur-footer div a {
+  text-decoration: none;
+  color: #464951 ;
 
 
-{ /* ------------------- Array ------------------ */  }
+}
 
+#conteneur-footer div a:hover {
+  color: #757a88;
+}
+
+
+
+/* ----------------------------- gestion_manu --------------------------------------*/
+
+
+.cadre_gestion
+{
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 55%;
+    margin-bottom: 2%;
+}
+
+.conteneur_gestion
+{
+    
+    display: flex;
+    flex-wrap:wrap;
+    position:relative;
+    
+}
+
+
+.element_gestion
+{
+    width: 44%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:2%;
+    border-radius:10px;
+    margin-top: 2%;
+    margin-left:4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titre_gestion
+{   
+    margin-top:2%;
+    margin-bottom: 2%;
+    text-align: center;
+    color: #464951;
+}
+
+.reveil_gestion
+{
+    width: 30%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:2%;
+    margin-left:10%;
+    height:10%;
+    border-radius:10px;
+    margin-top: 2%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.chauffer_gestion
+{
+    width: 27%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:1%;
+    height:10%;
+    border-radius:10px;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position:absolute;
+    top:20%;
+    left:62%;
+}
+
+
+.connecter_gestion
+{   
+    color:none;
+    width: 30%;
+    border: 2px solid black inset;
+    padding:2%;
+    height:8%;
+    border-radius:6px;
+    font-family: helvetica;
+    font-size:70%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.nocturne2_gestion
+{
+    color:none;
+    background-color: #F8FFF7;
+    width: 37%;
+    border: 4px solid black inset;
+    padding:12px;
+    height:15%;
+    border-radius:10px;
+    font-family: helvetica;
+    font-size:15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right:2%;
+    margin-top:5%;
+    margin-left:2%;
+}
+
+.nocturne2_gestion_element
+{
+    color:none;
+    background-color: #F8FFF7;
+    width: 27%;
+    border: 4px solid black inset;
+    padding:12px;
+    height:7%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position:absolute;
+    top:40%;
+    left:62%;
+}
+
+.boutons_gestion
+{
+   margin-left: 10%;
+   margin-bottom:3%;
+}
+
+
+
+/* ----------------------------- programmation --------------------------------------*/
+
+
+.conteneur_prog
+{
+
+    border: 4px solid black inset;
+    margin:auto;
+    padding: 3%;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:5%;
+    width: 80%;
+}
+
+.actualiser_prog
+{
+    width: 8%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:1%;
+    height:6%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position:absolute;
+    top:23%;
+    left:65%;
+}
+
+.conteneur2_prog
+{
+    display:flex;
+    justify-content: space-around;
+}
+
+
+.element_prog
+{
+    width: 27%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:2%;
+    height: 60%;
+    border-radius:10px;
+    margin-top: 2%;
+    margin-bottom:4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titre_prog
+{   
+    margin-top:2%;
+    text-align: center;
+    color: #464951;
+    margin-bottom:4%;
+}
+
+.desactiver_prog
+{
+    margin-top:2%;
+    margin-left:80%;
+}
+
+.Activer_prog
+{
+    margin-left:83%;
+}
+
+.span_prog
+{
+    font-weight: bold;
+    display:block;
+    font-size: 120%;
+    text-align:center;
+    margin-bottom: 3%;
+}
+
+
+
+/* ----------------------------- fonctionnalites --------------------------------------*/
+
+
+
+
+
+.contour_fonc
+{
+    width: 70%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    border-radius:10px;
+    padding:2%;
+    margin-top: 2%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top:3%;
+    margin-bottom: 5%;
+    
+}
+
+.display
+{
+    display:flex;
+    justify-content: space-around;
+}
+
+.conteneur_fonc
+{
+    width: 35%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:2%;
+    border-radius:10px;
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+
+.titre_fonc
+{   
+    margin-top:5%;
+    text-align: center;
+    color: #464951;
+}
+
+.form_fonc
+{
+    margin-left:2%;
+}
+
+.p_fonc
+{
+    margin-top:3%;
+}
+
+.envoyer_fonc
+{
+    margin-left: 80%;
+    margin-top: 3%;
+}
+/* ----------------------------- statistiques --------------------------------------*/
+
+.graph1{
+	white-space: nowrap;
+}
+.graph2{
+	white-space: nowrap;
+}
+.conteneur_stats
+{
+	
+
+    border: 4px solid black inset;
+    margin:auto;
+    padding: 3%;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:5%;
+    width: 80%;
+    height:550px;
+}
+
+	
+
+
+
+
+/* ----------------------- connection --------------------------*/
+.cadre_connection
+{
+    width: 23%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 21%;
+}
+
+
+.connexion_titre
+{   
+    margin-top:3%;
+    text-align: center;
+    color: #464951;
+}
+
+.connexion_identifiant
+{
+    margin-left:7%;
+    margin-top:5%;
+}
+
+.connexion_lien
+{
+    font-size:80%;
+}
+
+.connexion_valider
+{
+    margin-left:85%;
+}
+
+
+
+/* ----------------------- Subscribe --------------------------*/
+
+
+.cadre_subscribe
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+}
+
+
+
+.titre_subscribe
+{   
+    text-align: center;
+    color: #464951;
+    margin-bottom: 10%;
+}
+
+
+.adresse_subscribe
+{   
+    
+    margin-left:10%;
+    margin-top:3%;
+}
+
+.mdp_subscribe
+{
+    margin-left:13%;
+    margin-top:3%;
+}
+
+.insta_subscribe
+{
+    margin-left:2%;
+    margin-top:3%;
+}
+
+
+.nom_subscribe
+{
+    margin-left:24%;
+}
+
+.tel_subscribe
+{
+   margin-left:16%;
+   margin-top:3%; 
+}
+
+.rep_subscribe
+{
+    margin-left:20%; 
+    margin-top:3%;
+}
+
+.question_subscribe
+{
+    margin-top:2%;
+}
+
+.inscription_subscribe
+{
+    margin-left:83%;
+}
+
+.span_subscribe
+{
+    font-size:70%;
+}
+
+
+
+/* ------------------- Admin_user_list ------------------ */ 
 
 table
 {
     border-collapse: collapse;
-	text-align : center ;
-	margin-left: auto;
-	margin-right :  auto;
-	width : ...;
+  text-align : center ;
+  width: 80%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
 }
 td, th /* Mettre une bordure sur les td ET les th */
 {
     border: 1px solid black;
 }
 
-
-/*------------------------form---------------------*/
-div
+.titre_admin_user_list
 {
-    width: 400px;
-    border: 4px solid black inset;
-    margin:auto;
-    padding:12px;
-    border-radius:10px;
-    font-family: helvetica;
-    font-size:15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
     color: #464951;
+    font-family: Helvetica, sans-serif;
+
+    margin-top:4%;
 }
 
 
-h1
-{    
-    margin-top:10px;
+.bouton_admin_user_list
+{
+    margin-left: 10%;
+    margin-top:3%;
+    color:none;
+    background-color: #F8FFF7;
+    width: 20%;
+    border: 4px solid black inset;
+    padding:12px;
+    height:5%px;
+    border-radius:10px;
+    font-size:120%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* ----------------------------- gestion pieces --------------------------------------*/
+.conteneur_gestion_pieces
+{
+	
+
+    border: 4px solid black inset;
+    margin:auto;
+    padding: 3%;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:5%;
+    width: 80%;
+    height:550px;
+}
+	
+	
+
+/* ----------------------------- Catalogue -----------------------------------------*/
+
+#ajout_produit
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+
+.product_name
+{
+    margin-left:auto;
+    margin-top:auto; 
+}
+.price
+{
+    margin-left:auto;
+    margin-top:auto; 
+}
+.conso
+{
+    margin-left:auto;
+    margin-top:auto; 
+}
+.description
+{
+    margin-left:auto;
+    margin-top:auto; 
+}
+#ajout_produit_titre
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
+}
+#modif_produit
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+#jeanne_titre
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
+}
+#montre_produit_titre
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
+}
+#tableproduit
+{
+    border-collapse: collapse;
+    text-align : center ;
+    width: 80%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+}
+#table_user
+{
+    border-collapse: collapse;
+    text-align : center ;
+    width: 95%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:10%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+}
+.product_titre_user
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
+}
+#product_show
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+#product_add_comment
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+#product_show_comment
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+.titre_avis
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
     text-align: center;
     color: #464951;
 }
 
 
-.adresse
-{   
-    
-    margin-left:52px;
-    margin-top:15px;
-}
-
-.mdp
+/* ---------------------------------------------- Forgotten Password ---------------------------------------*/
+#user_name_question
 {
-    margin-left:67px;
-    margin-top:15px;
-}
-
-.insta
-{
-    margin-left:13px;
-    margin-top:15px;
-}
-
-
-.nom
-{
-    margin-left:120px;
-}
-
-.tel
-{
-   margin-left:81px;
-   margin-top:15px; 
-}
-
-.rep
-{
-    margin-left:92px; 
-    margin-top:15px;
-}
-
-.question
-{
-    margin-left:0px; 
-    margin-top:10px;
-}
-
-body
-{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
     font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
 }
-
-img
-{    
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.inscription
+.mdp_oublie
 {
-    margin-top:10px;
-    margin-left:120px;
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
 }
-
-span
+#question_secrete
 {
-    font-size:12px;
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+.nouveau_mdp_titre
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
+}
+#new_mdp
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+/* ------------------- Admin_add_user_list ------------------ */ 
+
+
+.cadre_admin_add_user
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+}
+
+
+.titre_admin_add_user
+{   
+    text-align: center;
+    color: #464951;
+    margin-bottom: 10%;
+}
+
+.update_admin_add_user
+{
+    margin-left:83%;
 }
 
 
 
+/*--------------------------------- FAQ admin -----------------------------------*/
+
+.formulaire_faq_admin
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+.conteneur_stats
+{
+	border: 4px solid black inset;
+    margin:auto;
+    padding: 3%;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:5%;
+    width: 80%;
+    display: flex;
+}
+
+.conteneur2_stats
+{
+	width: 44%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:2%;
+    border-radius:10px;
+    margin-top: 2%;
+    margin-left:4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.table_stats
+{
+	border: 4px solid black inset;
+    margin:auto;
+    padding: 3%;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 3%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:5%;
+    width: 80%;
+    display: flex;
+}	
+
+.valeurs_stats
+{
+	font-size: 200%;
+	text-align: center;
+
+}
+
+.conteneur_faq
+{
+
+    border: 4px solid black inset;
+    margin:auto;
+    padding: 30px;
+    border-radius:10px;
+    background-color: rgba(240,255,237,0.80);
+    margin-top: 60px;
+    font-family: helvetica;
+    font-size:15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:30px;
+    width: 1300px;
+    margin-bottom: 160px;
+}
+
+
+.message_faq
+{
+	width: 44%;
+    background-color: #F8FFF7;
+    border: 4px solid black inset;
+    padding:2%;
+    border-radius:10px;
+    margin-top: 2%;
+    margin-left:4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.titre_faq
+{
+	text-align: center;
+}
+
+
+.formulaire {
+	width: 80%;
+
+
+}
+
+.formulaire {
+	width: 80%;
+
+
+}
+
+.formulaire {
+	width: 80%;
+
+
+}
+
+.form_notif {
+
+	width: 80%;
+	margin-left: 15%;
+
+
+}
+
+.titre {
+	text-align: center;
+
+}
+
+.texte {
+
+	margin-left: 15%;
+	margin-right: 18%;		
+}
+
+
+
+.zone {
+	background-color : rgba(173, 164, 150, .4);
+	margin-left: 20%;
+	margin-right: 20%;
+
+}
+
+td, th {
+border: thin solid #464951;
+}
+
+.table_notif {
+	background-color : rgba(173, 164, 150, .4);
+	margin-left : auto;
+	margin-right : auto;
+	height : auto;
+	border-collapse: collapse;
+}
+.homepage_screen {
+
+	
+  	justify-content: space-around;
+  	font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+  	text-align: center;
+}
+
+
+.homepage_element_text{
+	background-color : rgba(173, 164, 150, .3);
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.homepage_title{
+	margin-top :2%;
+	color: #377F30;
+	font-size: 60px ;
+}
+
+.homepage_text {
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.zone {
+	text-align: center;
+	background-color : rgba(173, 164, 150, .4);
+	font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+}
+
+
+.homepage_visual {
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+
+}
+
+.assistance_global {
+	display: flex;
+  	justify-content: space-around;
+  	font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+  	text-align: center;
+    
+}
+
+.assistance_title {
+	font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+  	text-align: center;
+}
+
+.lien {
+	color: #464951;
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+}
+
+.lien:hover {
+  color: #757a88;
+}
+.profil_titre
+{
+    font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+  	text-align: center;
+}
+.profil_div
+{
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;    
+    border-radius:10px;
+    padding:2%;
+    margin-top: 4%;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+}
+/* ------------------- mentions légales domisep------------------ */  
+
+
+
+
+.conteneur
+{
+	
+    width: 30%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+}
+.textarea{
+
+width:80%;
+height:400px;
+
+}
+.titre_formulaire{
+width:60%;
+}
+/* ------------------- mentions légales------------------ */  
+.conteneur_user
+{
+	
+    width: 60%;
+
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+}
+
+/* ----------------------------- statistiques --------------------------------------*/
+
+
+.conteneur_stats_geoff
+{
+	
+	width: 48%;
+    background-color: rgba(240,255,237,0.80);
+    border: 4px solid black inset;
+    margin:auto;
+    padding:2%;
+    border-radius:10px;
+    font-family: helvetica;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #464951;
+    margin-bottom: 5%;
+    margin-top:4%;
+    
+    	
+}
+.titre_stats_user
+{
+    margin-top:4%;
+    margin-bottom: 4%;  
+    text-align: center;
+    color: #464951;
+}
+.imgdiv
+{
+    justify-content: space-around;
+  	font-family: Helvetica, sans-serif;
+  	font-size: x-large ;
+  	color: #464951;
+  	text-align: center;
+}
+.geoff_titre
+{
+    text-align: center;
+    color: #464951;
+    margin-bottom: 1%;
+}

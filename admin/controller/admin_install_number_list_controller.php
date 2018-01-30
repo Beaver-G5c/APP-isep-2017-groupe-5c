@@ -17,7 +17,7 @@ if (isset($_POST['submit_install_number']))
 		
 		// appel a la fonction situee dans subscribe_model3.php
 		add_number($_POST['install_number'],$bdd);
-		echo ("j'ai ajouté ton numéro");
+		
 		require($localisation.'admin/view/admin_install_number_list_view.php');
 	
 	

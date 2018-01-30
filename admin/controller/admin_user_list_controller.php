@@ -6,7 +6,7 @@ require ($localisation.'admin/view/admin_add_user_view.php');
 require ($localisation.'admin/model/admin_add_user_model.php');
 
 if (isset ($_POST['submit'])){
-    echo ($_POST['submit']);
+ 
     
     if ($_POST['submit']=='Supprimer'){
         
@@ -24,7 +24,7 @@ if (isset ($_POST['submit'])){
 
     }
     
-    if ($_POST['submit']=='Ajouter')
+    if ($_POST['submit']=='Ajouter un admin')
     {
         addUserForm();
           
@@ -67,7 +67,7 @@ if (isset($_POST['submit_action']))
     
     //------- on verifie si le name est bien libre !
 
-    if (!is_login_free($_POST['name']))
+    if (!is_login_free($_POST['name'],$bdd))
     
     
     // le login est deja pris on reaffiche le formulaire
@@ -96,14 +96,14 @@ if (isset($_POST['submit_action']))
             $is_admin=0;
         }
         // appel a la fonction situee dans subscribe_model3.php
-        add_user(input_securisation($_POST['name']),input_securisation($_POST['email']),input_securisation($_POST['password']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),$is_admin,0,input_securisation($_POST['insta']));
+        add_user($bdd,input_securisation($_POST['name']),input_securisation($_POST['email']),input_securisation($_POST['password']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),$is_admin,0,input_securisation($_POST['insta']));
         
         
         // on verifie que l'install number est libre
         
         
         
-        if (check_install_number_is_free(input_securisation($_POST['insta']),get_id_from_name(input_securisation($_POST['name']),$bdd),$bdd)){
+        if (get_id_from_name(input_securisation($_POST['name']),$bdd)){
             
             // on est dans ce cas si l'install number fonctionne ducoup la fonction ajoute l'id de l'user dans la table install number
             // ensuite on le notifie a l'admin
@@ -120,15 +120,6 @@ if (isset($_POST['submit_action']))
        		<?php 
 		}
 		
-		else{
-			// on est dans ce cas si l'install number est deja pris ou si il n'existe pas
-		// par conséquent on supprime l'user qui vient d'etre inscrit car il n'a pas de numéro d'installation ou celui-ci ne fonctionne pas
-			
-		    installNumberProblem();
-			
-			dropUser(get_id_from_name(input_securisation($_POST['name'])));
-			addUserForm();
-			}
 	
 	 	}
 	}

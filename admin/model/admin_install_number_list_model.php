@@ -21,3 +21,4 @@ function add_number($install_number,$bdd){
 	
 	$req = $bdd->query('SELECT * FROM install_number ');
 	
+	

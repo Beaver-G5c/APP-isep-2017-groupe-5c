@@ -75,19 +75,13 @@ function check_install_number_is_free($bdd,$install_number,$id_user)
 
 function get_id_from_name($bdd,$name)
 {
-	
-	
-		
-	
-	
 	$req = $bdd->query('SELECT ID_user FROM users WHERE name="'.$name.'" ');
-	while ($donnees = $req->fetch()){
-		
-		
-
-		return ($donnees['ID_user']);
-	}
+	$donnees = $req->fetch();
+	return ($donnees['ID_user']);
+	
 }
+
+
 
 function dropUser($bdd,$id_user)
 {

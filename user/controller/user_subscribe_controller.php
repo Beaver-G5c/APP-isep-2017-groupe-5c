@@ -14,7 +14,7 @@ if (isset($_POST['submit']))
 	
 	//------- on verifie si le name est bien libre !
 	
-	if (!is_login_free($_POST['name']))
+	if (!is_login_free($_POST['name'],$bdd))
 		 
 		
 		// le login est deja pris on reaffiche le formulaire
@@ -36,7 +36,7 @@ if (isset($_POST['submit']))
 		
 		
 		// appel a la fonction situee dans subscribe_model3.php
-		add_user($bdd,input_securisation($_POST['name']),input_securisation($_POST['email']),input_securisation($_POST['password']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),0,0,input_securisation($_POST['insta']));
+		add_user($bdd,input_securisation($_POST['name']),input_securisation($_POST['email']), input_securisation($_POST['mdp']),input_securisation($_POST['telephone']),input_securisation($_POST['secret_question']),input_securisation($_POST['secret_answer']),0,0,input_securisation($_POST['insta']));
 		
 		
 		// on verifie que l'install number est libre 
@@ -50,7 +50,7 @@ if (isset($_POST['submit']))
 			
 		
 			// redirection vers la liste des utilisateurs 
-			echo ("redirection vers la config des salles");
+			echo ("<a class=cadre_subscibe href='index.php?page=connection'>Se connecter avec ces nouveaux identifiants </a>");
 			
 		}
 		
@@ -60,7 +60,7 @@ if (isset($_POST['submit']))
 			
 			echo ("Le numéro d'installation ne fonctionne pas");
 			
-			dropUser(get_id_from_name(input_securisation($_POST['name'])));
+			dropUser($bdd,get_id_from_name($bdd,input_securisation($_POST['name'])));
 			subscribeForm();
 			}
 	

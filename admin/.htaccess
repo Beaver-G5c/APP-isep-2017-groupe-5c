@@ -1,0 +1,4 @@
+AuthName "Page admin"
+AuthType Basic
+AuthUserFile "D:/MAMP/htdocs/soutenance25janvier/admin/.htpasswd"
+Require valid-user

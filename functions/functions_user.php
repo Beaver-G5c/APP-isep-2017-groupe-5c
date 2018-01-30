@@ -26,25 +26,25 @@
 	}*/
 
 
-/*function turn_user_into_disconnected( $id)
+function turn_user_into_disconnected( $id,$bdd)
 	// la fonction passe l'user en mode disconnected quand il se deconnecte
 	/* Author : Thibpffr
 	version : 1.0
-	date : 29/11
+	date : 29/11*/
 	{
-	require ("../connect.php");
+	
 	$reponse=$bdd -> query('UPDATE users SET is_connected = 0 WHERE ID_user ="'.$id.'"');
 	}
-*/
 
 
-function is_login_free ($login)
+
+function is_login_free ($login,$bdd)
 	// la fonction renvoie 1 si le login est libre et 0 si il est deja utilisé 
 	/* Author : Thibpffr
 	version : 1.0
 	date : 29/11*/
 	{
-	require ("../connect.php");
+
 	$reponse=$bdd -> query('SELECT name FROM users WHERE name="'.$login.'" ');
 	
 	$data_base_login=NULL;
